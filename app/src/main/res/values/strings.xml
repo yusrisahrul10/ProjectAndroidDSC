@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">SMA 14 Bandung</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sman_14_bandung">SMAN 14 BANDUNG</string>
+    <string name="web">www.saman14bandung.com</string>
+    <string name="instagram">sman14bandung</string>
+    <string name="fb">SMAN14BANDUNG</string>
+    <string name="telp">082295103327</string>
+    <string name="whatsapp">082295103327</string>
+
+    <string name="todo">TODO</string>
+    <string name="Open">Kalender</string>
+    <string name="Close">Kalender</string>
+    <string name="oktober">Oktober 2018</string>
+    <string name="september_2018">September 2018</string>
+    <string name="_15">15</string>
+    <string name="_5">10</string>
+    <string name="festival_budaya_2018">Festival Budaya 2018</string>
+    <string name="_11">11</string>
+    <string name="_20">20</string>
+    <string name="class_meeting_2018">Class Meeting 2018</string>
+    <string name="tahun_baru_islam">Tahun Baru Islam</string>
+    <string name="pembelajaran_penyembelihan_hewan_qurban">Pembelajaran Penyembelihan Hewan Qurban</string>
+</resources>
