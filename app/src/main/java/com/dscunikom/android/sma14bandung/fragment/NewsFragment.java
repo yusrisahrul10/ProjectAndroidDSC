@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dscunikom.android.sma14bandung.President;
-import com.dscunikom.android.sma14bandung.PresidentData;
+import com.dscunikom.android.sma14bandung.model.President;
+import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.CardViewNewsEventAdapter;
 

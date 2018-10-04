@@ -1,4 +1,4 @@
-package com.dscunikom.android.sma14bandung;
+package com.dscunikom.android.sma14bandung.model;
 
 import java.util.ArrayList;
 
