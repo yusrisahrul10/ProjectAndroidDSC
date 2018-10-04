@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="lighgrey">#ededed</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="default_circle_indicator_fill_color">@color/colorPrimary</color>
+    <color name="default_circle_indicator_page_color">@color/colorWhite</color>
+    <color name="default_circle_indicator_stroke_color">@android:color/transparent</color>
 </resources>

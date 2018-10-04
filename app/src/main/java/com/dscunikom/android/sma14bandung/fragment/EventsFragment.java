@@ -13,6 +13,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.CardViewNewsEventAdapter;
+import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class EventsFragment extends Fragment {
 
     public ArrayList<President> list;
     public RecyclerView recyclerView;
+    ApiInterface apiInterface;
 
 
     public EventsFragment() {
@@ -45,6 +47,10 @@ public class EventsFragment extends Fragment {
         cardViewNewsEventAdapter.setListPresident(list);
         recyclerView.setAdapter(cardViewNewsEventAdapter);
         return rootView;
+    }
+
+    private void getData(){
+
     }
 
 }
