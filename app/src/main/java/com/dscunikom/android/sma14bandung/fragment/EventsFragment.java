@@ -49,8 +49,6 @@ public class EventsFragment extends Fragment {
         return rootView;
     }
 
-    private void getData(){
 
-    }
 
 }

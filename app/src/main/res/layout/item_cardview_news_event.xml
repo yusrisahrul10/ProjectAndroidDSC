@@ -24,7 +24,8 @@
             android:scaleType="centerCrop"
             android:layout_marginTop="4dp"
             tools:src="@color/colorPrimary"
-            android:src="@mipmap/ic_launcher_dsc_round"/>
+            android:src="@mipmap/ic_launcher_dsc_round"
+            />
         <TextView
             android:id="@+id/tv_title_content"
             android:layout_width="match_parent"

@@ -8,16 +8,193 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:fillColor="#FFFFFFFF"
-        app:pageColor="#00000000"
-        app:radius="6dp"
-        app:slideInterval="3000"
-        app:strokeColor="#FF777777"
-        app:strokeWidth="1dp"/>
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/carouselView"
+                android:id="@+id/ll_tentang">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tentang"
+                    android:id="@+id/tv_tentang"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_below="@id/tv_tentang"
+                    android:gravity="center">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_visi_misi"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Visi dan Misi"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_fasilitas"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Fasilitas"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_ekskul"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Ekstrakulikuler"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_below="@id/ll_tentang">-->
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" -->
+            <!--android:text="Prestasi"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/ll_tentang"
+                android:id="@+id/ll_prestasi">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prestasi"
+                    android:id="@+id/tv_prestasi"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_prestasi_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#f4f4f4"
+                        android:padding="6dp"
+                        tools:listitem="@layout/item_prestasi">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_prestasi">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lokasi"
+                        android:id="@+id/tv_lokasi"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <ImageView
+                        android:layout_width="250dp"
+                        android:layout_height="125dp"
+                        android:layout_marginRight="16sp"
+                        android:textColor="#757575"
+                        android:src="@drawable/map"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:text="Jl. Yudhawastu Pramuka IV.Cicadas, Cibeunying Kidul, Kota Bandung, Jawa Barat 40121"
+                        />
+                </TableRow>
+            </TableLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 </FrameLayout>
