@@ -21,18 +21,20 @@ import com.dscunikom.android.sma14bandung.fragment.EventsFragment;
 import com.dscunikom.android.sma14bandung.fragment.HomeFragment;
 import com.dscunikom.android.sma14bandung.fragment.NewsFragment;
 import com.dscunikom.android.sma14bandung.R;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
+
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
 
+        implements NavigationView.OnNavigationItemSelectedListener {
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        sessionManager = new SessionManager(getApplicationContext());
         ViewPager viewPager = findViewById(R.id.pager);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 

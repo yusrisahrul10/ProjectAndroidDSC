@@ -42,9 +42,7 @@ public class CardViewNewsEventAdapter extends RecyclerView.Adapter<CardViewNewsE
     public void onBindViewHolder(CardViewNewsEventAdapter.CardViewViewHolder holder, int position) {
         final President p = getListPresident().get(position);
 
-//        Glide.with(context)
-//                .load("test"+p.getPhoto())
-//                .into(holder.imgContent);
+
         Glide.with(context)
                 .load(p.getPhoto())
                 .into(holder.imgContent);
