@@ -57,8 +57,7 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_news, container, false);
-        list = new ArrayList<>();
-        list.addAll(PresidentData.getListData());
+
         recyclerView = rootView.findViewById(R.id.rv_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         sessionManager = new SessionManager(getActivity().getApplicationContext());

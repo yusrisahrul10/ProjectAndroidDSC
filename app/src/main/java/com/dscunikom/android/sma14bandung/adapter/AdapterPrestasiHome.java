@@ -39,7 +39,7 @@ public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHom
     @NonNull
     @Override
     public AdapterPrestasiHome.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_news_event, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prestasi, parent, false);
         return new MyViewHolder(view);
 
     }
@@ -55,28 +55,24 @@ public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHom
         final Berita p = getmListBerita().get(position);
 
         Glide.with(context)
-                .load("http://192.168.0.106/projectdsc/uploads/berita/"+p.getImage())
+                .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+p.getImage())
                 .into(holder.imgContent);
 
-
-        holder.tvDate.setText(p.getTanggal());
-        holder.tvTitle.setText(p.getJudul_berita());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mListBerita.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgContent;
-        TextView tvTitle, tvDate;
+
         public MyViewHolder(View itemView) {
             super(itemView);
-            imgContent = itemView.findViewById(R.id.img_content);
-            tvTitle = itemView.findViewById(R.id.tv_title_content);
-            tvDate = itemView.findViewById(R.id.tv_date_content);
+            imgContent = itemView.findViewById(R.id.image_prestasi);
+
         }
     }
 }

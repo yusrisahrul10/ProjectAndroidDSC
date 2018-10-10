@@ -16,7 +16,7 @@
     <string name="fb">SMAN14BANDUNG</string>
     <string name="telp">082295103327</string>
     <string name="whatsapp">082295103327</string>
-
+    <string name="default_picture_location">"@mipmap/tile"</string>
     <string name="todo">TODO</string>
     <string name="Open">Kalender</string>
     <string name="Close">Kalender</string>

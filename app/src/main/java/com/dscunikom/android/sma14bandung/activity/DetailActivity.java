@@ -59,7 +59,7 @@ SessionManager sessionManager;
                 tvTanggal.setText(mList.get(0).getTanggal());
 
                 Glide.with(DetailActivity.this)
-                        .load("http://192.168.0.106/projectdsc/uploads/berita/"+mList.get(0).getImage())
+                        .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+mList.get(0).getImage())
                         .into(imgDetail);
             }
 

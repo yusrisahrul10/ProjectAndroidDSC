@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+import com.dscunikom.android.sma14bandung.adapter.AdapterBerita;
 import com.dscunikom.android.sma14bandung.adapter.AdapterPrestasiHome;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.CardViewNewsEventAdapter;
@@ -21,6 +22,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
 
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4, R.drawable.image_5};
+    int[] sampleImages = {R.drawable.logobandung,R.drawable.logobandung,R.drawable.logobandung};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,33 +61,28 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
-
-        list = new ArrayList<>();
-        list.addAll(PresidentData.getListData());
-
         recyclerView = view.findViewById(R.id.rv_prestasi_home);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
-        CardViewNewsEventAdapter cardViewNewsEventAdapter = new CardViewNewsEventAdapter(this.getActivity());
-        cardViewNewsEventAdapter.setListPresident(list);
-        recyclerView.setAdapter(cardViewNewsEventAdapter);
+        final AdapterPrestasiHome adapterBerita = new AdapterPrestasiHome(this.getActivity());
 
-//        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
-//        Call<GetBerita> call = apiInterface.getBerita();
-//        call.enqueue(new Callback<GetBerita>() {
-//            @Override
-//            public void onResponse(Call<GetBerita> call, Response<GetBerita> response) {
-//                List<Berita> beritaList = response.body().getGetBerita();
-//                Log.e("Testing ","GO : "+String.valueOf(beritaList.get(0).getImage()));
-//                mAdapter = new AdapterPrestasiHome(beritaList);
-//                recyclerView.setAdapter(mAdapter);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GetBerita> call, Throwable t) {
-//
-//            }
-//        });
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<GetBerita> call = apiInterface.getBerita();
+        call.enqueue(new Callback<GetBerita>() {
+            @Override
+            public void onResponse(Call<GetBerita> call, Response<GetBerita> response) {
+                List<Berita> beritaList = response.body().getGetBerita();
+                Log.e("Testing ","GO : "+String.valueOf(beritaList.get(0).getImage()));
+                adapterBerita.setmListBerita(beritaList);
+                recyclerView.setAdapter(adapterBerita);
+
+            }
+
+            @Override
+            public void onFailure(Call<GetBerita> call, Throwable t) {
+
+            }
+        });
 
         carouselView = view.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
