@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProfileActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageDetail"
+                android:layout_width="match_parent"
+                android:layout_height="204dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/sman14" />
+
+            <TextView
+                android:id="@+id/txtIsiBerita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:text="Sejarah"
+                android:textStyle="bold"
+                android:textColor="#2d3436"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:paddingLeft="5dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate ultricies orci ut tempus. Ut vehicula finibus tristique. Nam interdum aliquam ornare. Aliquam eget justo placerat, porta nulla eu, semper turpis. Cras purus lorem, egestas ut ullamcorper eget, aliquet in sapien. Phasellus malesuada, erat commodo elementum laoreet, felis lorem suscipit orci, eget scelerisque odio ligula non leo. Etiam facilisis pellentesque nisi, eu suscipit massa fringilla non.
+
+Morbi a nisl sodales, condimentum lectus ac, tristique quam. Sed sit amet molestie risus, a blandit sem. Aenean eget enim suscipit dui scelerisque pretium in sed leo. Vivamus convallis arcu eget nisl scelerisque dapibus. Sed et mauris est. Suspendisse id vulputate ipsum, ac convallis metus. Nam quis vestibulum nunc, ac vulputate quam. Nunc non quam consectetur, sodales sapien quis, venenatis urna. Sed luctus dui id tortor ullamcorper, vitae gravida velit vestibulum. Morbi placerat odio ut risus cursus, quis congue leo semper. Integer vel pellentesque nibh, vel congue lorem. Suspendisse scelerisque ex in velit rhoncus vulputate.
+
+Maecenas in tortor sed lectus gravida volutpat. In nibh lorem, vulputate ut eleifend vitae, vehicula nec ex. Ut interdum libero sit amet dui porta, ultricies fermentum tortor varius. Donec arcu dui, elementum eget laoreet sed, elementum eu ante. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean in nulla egestas, finibus mi id, dignissim metus. Nullam accumsan diam non augue tempus, id condimentum massa dapibus. Aliquam mattis imperdiet sapien, id lobortis odio volutpat at. Duis vel dictum ex. Integer non ipsum id odio tristique venenatis. Nam ullamcorper consequat lorem, in commodo risus consectetur ut."
+                android:textColor="#2d3436"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:text="Visi"
+                android:textStyle="bold"
+                android:textColor="#2d3436"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:paddingLeft="5dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate ultricies orci ut tempus. Ut vehicula finibus tristique. Nam interdum aliquam ornare. Aliquam eget justo placerat, porta nulla eu, semper turpis. Cras purus lorem, egestas ut ullamcorper eget, aliquet in sapien. Phasellus malesuada, erat commodo elementum laoreet, felis lorem suscipit orci, eget scelerisque odio ligula non leo. Etiam facilisis pellentesque nisi, eu suscipit massa fringilla non."
+                android:textColor="#2d3436"
+                android:textSize="12sp"
+                />
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="5dp"
+            android:text="Misi"
+            android:textStyle="bold"
+            android:textColor="#2d3436"
+            android:textSize="18sp"
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:paddingLeft="5dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate ultricies orci ut tempus. Ut vehicula finibus tristique. Nam interdum aliquam ornare. Aliquam eget justo placerat, porta nulla eu, semper turpis. Cras purus lorem, egestas ut ullamcorper eget, aliquet in sapien. Phasellus malesuada, erat commodo elementum laoreet, felis lorem suscipit orci, eget scelerisque odio ligula non leo. Etiam facilisis pellentesque nisi, eu suscipit massa fringilla non."
+                android:textColor="#2d3436"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="5dp"
+                android:text="Tujuan"
+                android:textStyle="bold"
+                android:textColor="#2d3436"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:paddingLeft="5dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate ultricies orci ut tempus. Ut vehicula finibus tristique. Nam interdum aliquam ornare. Aliquam eget justo placerat, porta nulla eu, semper turpis. Cras purus lorem, egestas ut ullamcorper eget, aliquet in sapien. Phasellus malesuada, erat commodo elementum laoreet, felis lorem suscipit orci, eget scelerisque odio ligula non leo. Etiam facilisis pellentesque nisi, eu suscipit massa fringilla non."
+                android:textColor="#2d3436"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

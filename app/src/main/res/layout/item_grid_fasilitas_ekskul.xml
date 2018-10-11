@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_item_photo"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:layout_margin="1dp"
+            tools:src="@drawable/animasi" />
+
+        <TextView
+            android:id="@+id/text_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="30dip"
+            android:background="#AA000000"
+            android:paddingLeft="10dp"
+            tools:text="Juara Lomba Roket"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+    </FrameLayout>
+
+</LinearLayout>

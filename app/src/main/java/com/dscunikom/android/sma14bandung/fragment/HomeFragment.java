@@ -1,6 +1,7 @@
 package com.dscunikom.android.sma14bandung.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+import com.dscunikom.android.sma14bandung.activity.EkskulActivity;
+import com.dscunikom.android.sma14bandung.activity.FasilitasActivity;
+import com.dscunikom.android.sma14bandung.activity.ProfileActivity;
 import com.dscunikom.android.sma14bandung.adapter.AdapterBerita;
 import com.dscunikom.android.sma14bandung.adapter.AdapterPrestasiHome;
 import com.dscunikom.android.sma14bandung.R;
@@ -30,6 +34,8 @@ import com.synnapps.carouselview.ImageListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,6 +67,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
+
+        ButterKnife.bind(this, view);
         recyclerView = view.findViewById(R.id.rv_prestasi_home);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
@@ -100,4 +108,21 @@ public class HomeFragment extends Fragment {
         }
     };
 
+    @OnClick(R.id.btn_visi_misi)
+    public void visiMisiClick(){
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_fasilitas)
+    public void fasilitasClick(){
+        Intent intent = new Intent(getActivity(), FasilitasActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_ekskul)
+    public void ekskulClick(){
+        Intent intent = new Intent(getActivity(), EkskulActivity.class);
+        startActivity(intent);
+    }
 }

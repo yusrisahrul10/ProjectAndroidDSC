@@ -21,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:adjustViewBounds="true"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                tools:src="@drawable/sman14"/>
 
             <TextView
                 android:id="@+id/txtJudul"
@@ -29,7 +30,6 @@
                 android:layout_height="wrap_content"
                 android:background="#ff7043"
                 android:padding="5dp"
-
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="bold" />
