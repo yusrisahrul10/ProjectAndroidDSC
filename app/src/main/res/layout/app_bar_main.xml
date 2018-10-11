@@ -15,38 +15,39 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#ff7043"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/app_name"/>
+            app:title="@string/app_name" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#ff7043">
 
             <!--<android.support.design.widget.TabItem-->
-                <!--android:id="@+id/tabItem"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Beranda" />-->
+            <!--android:id="@+id/tabItem"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Beranda" />-->
 
             <!--<android.support.design.widget.TabItem-->
-                <!--android:id="@+id/tabItem2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Berita" />-->
+            <!--android:id="@+id/tabItem2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Berita" />-->
 
             <!--<android.support.design.widget.TabItem-->
-                <!--android:id="@+id/tabItem3"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Acara" />-->
+            <!--android:id="@+id/tabItem3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Acara" />-->
 
             <!--<android.support.design.widget.TabItem-->
-                <!--android:id="@+id/tabItem4"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Prestasi" />-->
+            <!--android:id="@+id/tabItem4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Prestasi" />-->
 
         </android.support.design.widget.TabLayout>
 

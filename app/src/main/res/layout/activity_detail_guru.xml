@@ -8,13 +8,13 @@
     android:orientation="vertical"
     tools:context=".activity.DetailGuruActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/tes1" />
+        android:src="@drawable/tes1" />
 
     <LinearLayout
         android:layout_width="wrap_content"
