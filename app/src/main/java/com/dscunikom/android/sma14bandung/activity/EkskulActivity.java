@@ -6,11 +6,21 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.dscunikom.android.sma14bandung.R;
+import com.dscunikom.android.sma14bandung.adapter.AdapterEkskul;
 import com.dscunikom.android.sma14bandung.adapter.AdapterGridFasilitasEkskul;
+import com.dscunikom.android.sma14bandung.getModel.GetEkstra;
+import com.dscunikom.android.sma14bandung.model.Ekstrakulikuler;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
+import com.dscunikom.android.sma14bandung.rest.Api;
+import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EkskulActivity extends AppCompatActivity {
 
@@ -29,8 +39,25 @@ public class EkskulActivity extends AppCompatActivity {
         list.addAll(PresidentData.getListData());
 
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
-        AdapterGridFasilitasEkskul adapterGridFasilitasEkskul = new AdapterGridFasilitasEkskul(this);
-        adapterGridFasilitasEkskul.setListPresident(list);
-        rvCategory.setAdapter(adapterGridFasilitasEkskul);
+        getData();
+    }
+
+    private void getData(){
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<GetEkstra> call = apiInterface.getEkstra();
+        call.enqueue(new Callback<GetEkstra>() {
+            @Override
+            public void onResponse(Call<GetEkstra> call, Response<GetEkstra> response) {
+                List<Ekstrakulikuler> ekstrakulikulers = response.body().getResult();
+                AdapterEkskul adapterEkskul = new AdapterEkskul(EkskulActivity.this);
+                adapterEkskul.setmListEkstra(ekstrakulikulers);
+                rvCategory.setAdapter(adapterEkskul);
+            }
+
+            @Override
+            public void onFailure(Call<GetEkstra> call, Throwable t) {
+
+            }
+        });
     }
 }

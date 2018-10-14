@@ -1,7 +1,6 @@
 package com.dscunikom.android.sma14bandung.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,14 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dscunikom.android.sma14bandung.activity.DetailActivity;
+import com.dscunikom.android.sma14bandung.activity.DetailBeritaActivity;
 import com.dscunikom.android.sma14bandung.adapter.AdapterBerita;
 import com.dscunikom.android.sma14bandung.getModel.GetBerita;
 import com.dscunikom.android.sma14bandung.model.Berita;
 import com.dscunikom.android.sma14bandung.model.President;
-import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.R;
-import com.dscunikom.android.sma14bandung.adapter.CardViewNewsEventAdapter;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
@@ -73,7 +70,7 @@ public class NewsFragment extends Fragment {
                 String id_berita = new Berita().getId_berita();
                 sessionManager.createIdBerita(id_berita);
                 adapterBerita.setmListBerita(beritaList);
-                recyclerView.setAdapter(adapterBerita);
+//                recyclerView.setAdapter(adapterBerita);
                 reloadView(adapterBerita,beritaList);
 
             }
@@ -86,7 +83,7 @@ public class NewsFragment extends Fragment {
         return rootView;
     }
     private void clickItemDetail(Berita berita){
-        Intent detailActivity = new Intent(getActivity(), DetailActivity.class);
+        Intent detailActivity = new Intent(getActivity(), DetailBeritaActivity.class);
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }

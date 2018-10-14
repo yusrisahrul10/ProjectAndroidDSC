@@ -23,6 +23,7 @@ public class AdapterGridFasilitasEkskul extends RecyclerView.Adapter<AdapterGrid
     private Context context;
     private ArrayList<President> listPresident;
 
+
     public AdapterGridFasilitasEkskul(Context context) {
         this.context = context;
     }

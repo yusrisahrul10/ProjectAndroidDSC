@@ -1,7 +1,11 @@
 package com.dscunikom.android.sma14bandung.rest;
 
+import com.dscunikom.android.sma14bandung.getModel.GetAcara;
 import com.dscunikom.android.sma14bandung.getModel.GetBerita;
+import com.dscunikom.android.sma14bandung.getModel.GetEkstra;
+import com.dscunikom.android.sma14bandung.getModel.GetFasilitas;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
+import com.dscunikom.android.sma14bandung.model.Acara;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -19,4 +23,16 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("trafic/auth")
     Call<GetResponse> postRespone(@Field("android_id") String android_id);
+
+    @GET("fasilitas")
+    Call<GetFasilitas> getFasilitas();
+
+    @GET("ekstrakulikuler")
+    Call<GetEkstra> getEkstra();
+
+    @GET("acara")
+    Call<GetAcara> getAcara();
+
+    @GET("acara")
+    Call<Acara> getDetailAcara(@Query("id_acara") String id_acara);
 }

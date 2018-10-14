@@ -25,6 +25,8 @@ public class SessionManager {
     public static final String KELURAHAN = "kelurahan";
     public static final String ID_PENGADUAN = "id_pengaduan";
     public static final String ID_BERITA = "id_berita";
+    public static final String ID_ACARA = "id_acara";
+
 
 
     public static final String LOGIN_TYPE = "login_type";
@@ -51,6 +53,10 @@ public class SessionManager {
 //    }
     public void createIdBerita(String id_berita){
         editor.putString(ID_BERITA,id_berita);
+        editor.commit();
+    }
+    public void createIdAcara(String id_acara){
+        editor.putString(ID_ACARA,id_acara);
         editor.commit();
     }
 
@@ -84,8 +90,7 @@ public class SessionManager {
     public HashMap<String, String> getUserDetils(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(ID_BERITA,pref.getString(ID_BERITA,null));
-
-
+        user.put(ID_ACARA,pref.getString(ID_ACARA,null));
         return user;
 
     }

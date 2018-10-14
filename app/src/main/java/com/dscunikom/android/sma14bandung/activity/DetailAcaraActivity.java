@@ -1,16 +1,14 @@
 package com.dscunikom.android.sma14bandung.activity;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telecom.Call;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.dscunikom.android.sma14bandung.R;
-import com.dscunikom.android.sma14bandung.getModel.GetBerita;
-import com.dscunikom.android.sma14bandung.model.Berita;
+import com.dscunikom.android.sma14bandung.model.Acara;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
@@ -20,12 +18,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DetailActivity extends AppCompatActivity {
-SessionManager sessionManager;
-@BindView(R.id.txtJudul)
+public class DetailAcaraActivity extends AppCompatActivity {
+    SessionManager sessionManager;
+    @BindView(R.id.txtJudul)
     TextView tvJudul;
     @BindView(R.id.txtIsiBerita)
     TextView tvIsiBerita;
@@ -33,38 +32,37 @@ SessionManager sessionManager;
     TextView tvTanggal;
     @BindView(R.id.imageDetail)
     ImageView imgDetail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_detail_acara);
         ButterKnife.bind(this);
         getData();
     }
 
-    public void getData(){
+    private void getData(){
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String,String> user = sessionManager.getUserDetils();
-        String id = user.get(SessionManager.ID_BERITA);
-        retrofit2.Call<GetBerita> berhasil = apiInterface.getDetailBerita(id);
+        String id = user.get(SessionManager.ID_ACARA);
+        Call<Acara> call = apiInterface.getDetailAcara(id);
 
-        berhasil.enqueue(new Callback<GetBerita>() {
+        call.enqueue(new Callback<Acara>() {
             @Override
-            public void onResponse(retrofit2.Call<GetBerita> call, Response<GetBerita> response) {
-               List<Berita> mList = response.body().getGetBerita();
-//                Berita berita = new Berita();
-                tvIsiBerita.setText(mList.get(0).getIsi_berita());
-                tvJudul.setText(mList.get(0).getJudul_berita());
-                tvTanggal.setText(mList.get(0).getTanggal());
-
-                Glide.with(DetailActivity.this)
-                        .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+mList.get(0).getImage())
+            public void onResponse(Call<Acara> call, Response<Acara> response) {
+//                Acara ambilData = new Acara();
+                tvIsiBerita.setText(response.body().getKeterangan());
+                tvJudul.setText(response.body().getNamaAcara());
+                tvTanggal.setText(response.body().getTanggal());
+                Glide.with(DetailAcaraActivity.this)
+                        .load("http://projectdsc.ahdirdiysarm.com/uploads/acara/".concat(response.body().getImage()))
                         .into(imgDetail);
+
+                Log.e("Nama Acara ","OnRespone "+String.valueOf(response.body().getNamaAcara()));
             }
 
             @Override
-            public void onFailure(retrofit2.Call<GetBerita> call, Throwable t) {
+            public void onFailure(Call<Acara> call, Throwable t) {
 
             }
         });
