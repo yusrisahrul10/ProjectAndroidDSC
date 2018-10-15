@@ -12,6 +12,7 @@ import com.dscunikom.android.sma14bandung.model.Berita;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +38,7 @@ SessionManager sessionManager;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         getData();
     }
 

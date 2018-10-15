@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.dscunikom.android.sma14bandung.R;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class KontakActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class KontakActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kontak);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         ImageView telp = findViewById(R.id.telp);
         telp.setOnClickListener(new View.OnClickListener() {
             @Override

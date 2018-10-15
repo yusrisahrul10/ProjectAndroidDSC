@@ -15,6 +15,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class FasilitasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fasilitas);
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_fasilitas);
         rvCategory.setHasFixedSize(true);
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));

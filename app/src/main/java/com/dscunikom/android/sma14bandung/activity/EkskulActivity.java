@@ -14,6 +14,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class EkskulActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ekskul);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_ekskul);
         rvCategory.setHasFixedSize(true);
 

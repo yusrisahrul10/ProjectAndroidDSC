@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.dscunikom.android.sma14bandung.R;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -18,6 +19,7 @@ public class GuruActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guru);
         ButterKnife.bind(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
     }
 
     @OnClick(R.id.img1)

@@ -19,6 +19,7 @@ import com.dscunikom.android.sma14bandung.activity.MainActivity;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +30,7 @@ public class PreloadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preload);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         ANDROID_ID = Settings.Secure.getString(this.getApplication().getContentResolver(),Settings.Secure.ANDROID_ID);
 
 //        if(!isConnected(PreloadActivity.this)) buildDialog(PreloadActivity.this).show();

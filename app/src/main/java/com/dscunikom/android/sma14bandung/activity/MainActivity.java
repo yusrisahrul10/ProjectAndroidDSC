@@ -1,12 +1,16 @@
 package com.dscunikom.android.sma14bandung.activity;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -22,16 +26,25 @@ import com.dscunikom.android.sma14bandung.fragment.EventsFragment;
 import com.dscunikom.android.sma14bandung.fragment.HomeFragment;
 import com.dscunikom.android.sma14bandung.fragment.NewsFragment;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class MainActivity extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
+    ContextCompat context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int startColor = getWindow().getStatusBarColor();
+            int endColor = ContextCompat.getColor(MainActivity.this, R.color.colorApps);
+            ObjectAnimator.ofArgb(getWindow(), "statusBarColor", startColor, endColor).start();
+        }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sessionManager = new SessionManager(getApplicationContext());

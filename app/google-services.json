@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "220317177848",
+    "firebase_url": "https://dsc-notif.firebaseio.com",
+    "project_id": "dsc-notif",
+    "storage_bucket": "dsc-notif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220317177848:android:281cd39df84a572d",
+        "android_client_info": {
+          "package_name": "com.dscunikom.android.sma14bandung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220317177848-eh4c4ojmlf01tt8p8qr88dagm7qo7gbo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dscunikom.android.sma14bandung",
+            "certificate_hash": "d8c889596f87f479e5e71393d5dc3b0023c0ed7b"
+          }
+        },
+        {
+          "client_id": "220317177848-igqbc0polnd8k8ok3vemp0n7q9136qdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7HDPv2fzwKnsvyyHf-sZ0J35-a5GBkgY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220317177848-igqbc0polnd8k8ok3vemp0n7q9136qdq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
