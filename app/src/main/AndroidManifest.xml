@@ -36,7 +36,9 @@
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.FasilitasActivity" />
         <activity android:name=".activity.EkskulActivity" />
-        <activity android:name=".activity.DetailAcaraActivity"></activity>
+        <activity android:name=".activity.DetailAcaraActivity" />
+        <activity android:name=".DetailFasilitasActivity" />
+        <activity android:name=".DetailEkskulActivity"></activity>
     </application>
 
 </manifest>
