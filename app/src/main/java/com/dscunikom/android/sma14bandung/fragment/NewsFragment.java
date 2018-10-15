@@ -66,7 +66,6 @@ public class NewsFragment extends Fragment {
             @Override
             public void onResponse(Call<GetBerita> call, Response<GetBerita> response) {
                 List<Berita> beritaList = response.body().getGetBerita();
-                Log.e("Testing ","GO : "+String.valueOf(beritaList.get(0).getImage()));
                 String id_berita = new Berita().getId_berita();
                 sessionManager.createIdBerita(id_berita);
                 adapterBerita.setmListBerita(beritaList);

@@ -64,7 +64,6 @@
         <activity android:name=".activity.DetailBeritaActivity" />
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.FasilitasActivity" />
-        <!--<activity android:name=".activity.EkskulActivity" />-->
         <activity android:name=".activity.EkskulActivity">
 
         </activity>
@@ -75,6 +74,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".DetailFasilitasActivity" />
+        <activity android:name=".DetailEkskulActivity"></activity>
     </application>
 
 </manifest>
