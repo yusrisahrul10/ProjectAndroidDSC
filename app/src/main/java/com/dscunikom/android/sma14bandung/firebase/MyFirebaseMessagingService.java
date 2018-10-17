@@ -33,17 +33,24 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.d(TAG, "From: " + remoteMessage.getFrom());
 
         if(remoteMessage.getData().size()>0){
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            Log.d(TAG, "Message data payload: " + remoteMessage.getData().size());
+
+            onMessageRecivedAcara(remoteMessage);
+
+            String activity = remoteMessage.getData().get("click_action");
+            String body = remoteMessage.getData().get("body");
+            Log.d(TAG, "ID ACARA : " + remoteMessage.getData().get("id_acara"));
+
+            sendNotification(body,activity);
         }
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
 
-            onMessageRecivedAcara(remoteMessage);
 
-            String activity = remoteMessage.getNotification().getClickAction();
-            sendNotification(remoteMessage.getNotification().getBody(),activity);
+//            String activity = remoteMessage.getNotification().getClickAction();
+//            sendNotification(remoteMessage.getNotification().getBody(),activity);
         }
 //        super.onMessageReceived(remoteMessage);
     }
@@ -68,17 +75,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         notificationManager.notify(0, notificationBuilder.build());
     }
     private void onMessageRecivedAcara(RemoteMessage remoteMessage){
-        try {
-            JSONObject data = new JSONObject(remoteMessage.getData());
-            String id = data.getString("id_acara");
+//        try {
+//            JSONObject data = new JSONObject(remoteMessage.getData().get("id_acara"));
+
+//            String id = data.getString("id_acara");
             sessionManager = new SessionManager(getApplicationContext());
-            sessionManager.createIdAcara(id);
-            Log.d("ID_ACARRA ","RESPONE "+String.valueOf(id));
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-
-        }
+            sessionManager.createIdAcara(remoteMessage.getData().get("id_acara"));
+            Log.d("ID_ACARRA ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_acara")));
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//
+//
+//        }
     }
     private Intent sendMessage(String activity, Intent intent){
         if(activity.equals("DETAILACTIVITY")){

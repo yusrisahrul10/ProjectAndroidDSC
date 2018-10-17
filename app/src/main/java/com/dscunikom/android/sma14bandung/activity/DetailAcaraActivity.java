@@ -1,5 +1,6 @@
 package com.dscunikom.android.sma14bandung.activity;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,8 @@ public class DetailAcaraActivity extends AppCompatActivity {
     TextView tvTanggal;
     @BindView(R.id.imageDetail)
     ImageView imgDetail;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,4 +72,6 @@ public class DetailAcaraActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
