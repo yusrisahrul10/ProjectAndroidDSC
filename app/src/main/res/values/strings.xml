@@ -36,5 +36,6 @@ Etiam ac convallis nisl. Curabitur eu commodo metus. Duis ultricies ut dui sed g
 \n\n\n\n
 Aenean sed leo vulputate, pulvinar nunc eget, tempor orci. Quisque neque ipsum, congue et arcu non, vehicula pretium metus. Ut odio sem, porta sit amet mollis eu, egestas nec velit. Praesent facilisis tortor nisi, a lobortis odio gravida at. Duis vel accumsan diam. Morbi elit eros, fringilla id commodo sed, rutrum non nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam at facilisis ante, vitae mattis augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer congue tortor nisl, a vulputate augue tempus eu.
     </string>
+    <string name="title_activity_guru_drawer">GuruDrawerActivity</string>
 
 </resources>
