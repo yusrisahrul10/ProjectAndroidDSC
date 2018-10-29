@@ -15,7 +15,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/default_circle_indicator_page_color">
+            android:background="@color/default_circle_indicator_page_color"
+            android:clipToPadding="false">
 
             <com.synnapps.carouselview.CarouselView
                 android:id="@+id/carouselView"
@@ -47,7 +48,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_tentang"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -61,7 +61,10 @@
                         android:layout_marginBottom="4dp"
                         android:background="#f4f4f4"
                         app:cardCornerRadius="4dp"
-                        app:cardElevation="8dp">
+                        app:cardElevation="8dp"
+                        android:elevation="8dp"
+
+                        >
 
                         <LinearLayout
                             android:layout_width="match_parent"
