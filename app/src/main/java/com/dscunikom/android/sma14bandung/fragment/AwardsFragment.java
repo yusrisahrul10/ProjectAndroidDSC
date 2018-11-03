@@ -9,12 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dscunikom.android.sma14bandung.AdapterPrestasi;
+import com.dscunikom.android.sma14bandung.adapter.AdapterPrestasi;
 import com.dscunikom.android.sma14bandung.R;
+import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
+import com.dscunikom.android.sma14bandung.model.Prestasi;
+import com.dscunikom.android.sma14bandung.rest.Api;
+import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -44,10 +53,31 @@ public class AwardsFragment extends Fragment {
         list.addAll(PresidentData.getListData());
 
         rvCategory.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
-        adapterPrestasi.setListPresident(list);
-        rvCategory.setAdapter(adapterPrestasi);
+//        AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
+//        adapterPrestasi.setListPresident(list);
+//        rvCategory.setAdapter(adapterPrestasi);
+
+        final AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<GetPrestasi> call = apiInterface.getPrestasi();
+
+        call.enqueue(new Callback<GetPrestasi>() {
+            @Override
+            public void onResponse(Call<GetPrestasi> call, Response<GetPrestasi> response) {
+                List<Prestasi> listPrestasi = response.body().getResult();
+                adapterPrestasi.setmListPrestasi(listPrestasi);
+                rvCategory.setAdapter(adapterPrestasi);
+
+            }
+            @Override
+            public void onFailure(Call<GetPrestasi> call, Throwable t) {
+
+            }
+        });
+
         return rootView;
+
+
     }
 
 }

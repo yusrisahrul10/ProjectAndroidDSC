@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.PreloadActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,7 +69,11 @@
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.FasilitasActivity" />
         <activity android:name=".activity.EkskulActivity"></activity>
-        <activity android:name=".activity.DetailAcaraActivity">
+        <activity android:name=".activity.DetailAcaraActivity"
+                  android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
             <intent-filter>
                 <action android:name="DETAILACTIVITY" />
 

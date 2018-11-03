@@ -40,7 +40,7 @@ public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewView
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAcara.CardViewViewHolder holder, int position) {
-            holder.tvTitle.setText(getmListAcara().get(position).getNamaAcara());
+        holder.tvTitle.setText(getmListAcara().get(position).getNamaAcara());
         holder.tvDate.setText(getmListAcara().get(position).getTanggal());
 
         Glide.with(context)

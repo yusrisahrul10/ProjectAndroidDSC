@@ -1,4 +1,4 @@
-package com.dscunikom.android.sma14bandung;
+package com.dscunikom.android.sma14bandung.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,9 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.model.President;
+import com.dscunikom.android.sma14bandung.model.Prestasi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +23,16 @@ import butterknife.ButterKnife;
 public class AdapterPrestasi extends RecyclerView.Adapter<AdapterPrestasi.ListViewHolder> {
 
     private ArrayList<President> listPresident;
+    List<Prestasi> mListPrestasi;
+
+    public List<Prestasi> getmListPrestasi() {
+        return mListPrestasi;
+    }
+
+    public void setmListPrestasi(List<Prestasi> mListPrestasi) {
+        this.mListPrestasi = mListPrestasi;
+    }
+
     private Context context;
 
     public AdapterPrestasi(Context context) {
@@ -43,19 +56,19 @@ public class AdapterPrestasi extends RecyclerView.Adapter<AdapterPrestasi.ListVi
 
     @Override
     public void onBindViewHolder(@NonNull AdapterPrestasi.ListViewHolder holder, int position) {
-        final President p = getListPresident().get(position);
+        final Prestasi p = getmListPrestasi().get(position);
+
 
 
         Glide.with(context)
-                .load(p.getPhoto())
+                .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/"+getmListPrestasi().get(position).getImage())
                 .into(holder.imgPrestasi);
-
-        holder.tvPrestasi.setText(p.getName());
+        holder.tvPrestasi.setText(p.getNamaPrestasi());
     }
 
     @Override
     public int getItemCount() {
-        return getListPresident().size();
+        return getmListPrestasi().size();
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {

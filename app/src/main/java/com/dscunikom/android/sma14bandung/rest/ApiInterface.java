@@ -4,6 +4,7 @@ import com.dscunikom.android.sma14bandung.getModel.GetAcara;
 import com.dscunikom.android.sma14bandung.getModel.GetBerita;
 import com.dscunikom.android.sma14bandung.getModel.GetEkstra;
 import com.dscunikom.android.sma14bandung.getModel.GetFasilitas;
+import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.model.Acara;
 
@@ -35,4 +36,7 @@ public interface ApiInterface {
 
     @GET("acara")
     Call<Acara> getDetailAcara(@Query("id_acara") String id_acara);
+
+    @GET("prestasi")
+    Call<GetPrestasi> getPrestasi();
 }
