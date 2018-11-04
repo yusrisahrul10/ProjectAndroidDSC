@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
 
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.logobandung,R.drawable.logobandung,R.drawable.logobandung};
+    int[] sampleImages = {R.drawable.asd,R.drawable.asd,R.drawable.asd};
 
     public HomeFragment() {
         // Required empty public constructor

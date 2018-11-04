@@ -19,6 +19,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
 
@@ -33,11 +34,13 @@ public class EkskulActivity extends AppCompatActivity {
 
     RecyclerView rvCategory;
     private ArrayList<President> list;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ekskul);
+        sessionManager = new SessionManager(getApplicationContext());
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_ekskul);
         rvCategory.setHasFixedSize(true);
@@ -47,6 +50,7 @@ public class EkskulActivity extends AppCompatActivity {
 
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
         getData();
+
     }
 
     private void getData(){
@@ -70,7 +74,7 @@ public class EkskulActivity extends AppCompatActivity {
     }
 
     private void clickItemDetail(Ekstrakulikuler ekstrakulikuler){
-        Intent detailActivity = new Intent(this, DetailEkskulActivity.class);
+        Intent detailActivity = new Intent(this, DetailEkstraActivity.class);
         startActivity(detailActivity);
     }
 
@@ -79,7 +83,9 @@ public class EkskulActivity extends AppCompatActivity {
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
-                Ekstrakulikuler listBerita = list.get(position);
+                Ekstrakulikuler listEkstra = list.get(position);
+                String id_ekstra = listEkstra.getIdEkstra();
+                sessionManager.createIdEkstra(id_ekstra);
                 clickItemDetail(list.get(position));
             }
         });

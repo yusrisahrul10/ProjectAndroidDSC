@@ -89,6 +89,7 @@ public class EventsFragment extends Fragment {
 
     private void clickItemDetail(Acara acara){
         Intent detailActivity = new Intent(getActivity(), DetailAcaraActivity.class);
+
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }

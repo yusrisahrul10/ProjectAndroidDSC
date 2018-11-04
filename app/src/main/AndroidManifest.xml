@@ -17,8 +17,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.PreloadActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,12 +68,14 @@
         <activity android:name=".activity.DetailBeritaActivity" />
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.FasilitasActivity" />
-        <activity android:name=".activity.EkskulActivity"></activity>
-        <activity android:name=".activity.DetailAcaraActivity"
-                  android:parentActivityName=".activity.MainActivity">
+        <activity android:name=".activity.EkskulActivity" />
+        <activity
+            android:name=".activity.DetailAcaraActivity"
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
+
             <intent-filter>
                 <action android:name="DETAILACTIVITY" />
 
@@ -85,7 +87,10 @@
         <activity
             android:name=".activity.GuruDrawerActivity"
             android:label="@string/title_activity_guru_drawer"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.DetailEkstraActivity" />
+        <activity android:name=".activity.DetailFasilitassActivity" />
+        <activity android:name=".activity.DetailPrestasiActivity"></activity>
     </application>
 
 </manifest>

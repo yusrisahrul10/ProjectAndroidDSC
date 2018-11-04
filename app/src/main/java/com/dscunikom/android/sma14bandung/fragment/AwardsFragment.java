@@ -1,6 +1,7 @@
 package com.dscunikom.android.sma14bandung.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,14 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dscunikom.android.sma14bandung.activity.DetailAcaraActivity;
+import com.dscunikom.android.sma14bandung.activity.DetailFasilitassActivity;
+import com.dscunikom.android.sma14bandung.activity.DetailPrestasiActivity;
 import com.dscunikom.android.sma14bandung.adapter.AdapterPrestasi;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
+import com.dscunikom.android.sma14bandung.model.Acara;
+import com.dscunikom.android.sma14bandung.model.Fasilitas;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.model.Prestasi;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +41,8 @@ public class AwardsFragment extends Fragment {
 
     RecyclerView rvCategory;
     private ArrayList<President> list;
+    ApiInterface apiInterface;
+    SessionManager sessionManager;
 
     public AwardsFragment() {
         // Required empty public constructor
@@ -58,6 +68,7 @@ public class AwardsFragment extends Fragment {
 //        rvCategory.setAdapter(adapterPrestasi);
 
         final AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
+        sessionManager = new SessionManager(getActivity().getApplicationContext());
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetPrestasi> call = apiInterface.getPrestasi();
 
@@ -66,18 +77,39 @@ public class AwardsFragment extends Fragment {
             public void onResponse(Call<GetPrestasi> call, Response<GetPrestasi> response) {
                 List<Prestasi> listPrestasi = response.body().getResult();
                 adapterPrestasi.setmListPrestasi(listPrestasi);
-                rvCategory.setAdapter(adapterPrestasi);
+//                rvCategory.setAdapter(adapterPrestasi);
+                reloadView(adapterPrestasi,listPrestasi);
 
             }
+
             @Override
             public void onFailure(Call<GetPrestasi> call, Throwable t) {
 
             }
         });
-
         return rootView;
 
 
     }
 
+    private void clickItemDetail(Prestasi prestasi){
+        Intent detailActivity = new Intent(getActivity(), DetailPrestasiActivity.class);
+        startActivity(detailActivity);
+        getActivity().overridePendingTransition(0,0);
+    }
+
+
+    public void reloadView(RecyclerView.Adapter adapter, final List<Prestasi> list) {
+        rvCategory.setAdapter(adapter);
+        ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
+                Prestasi listPrestasi = list.get(position);
+                String id_prestasi = listPrestasi.getIdPrestasi();
+                sessionManager.createdIdPrestasi(id_prestasi);
+                clickItemDetail(list.get(position));
+            }
+        });
+
+    }
 }

@@ -19,6 +19,7 @@ import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
 
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class FasilitasActivity extends AppCompatActivity {
 
     RecyclerView rvCategory;
+    SessionManager sessionManager;
 
 
 
@@ -40,6 +42,7 @@ public class FasilitasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fasilitas);
+        sessionManager = new SessionManager(getApplicationContext());
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_fasilitas);
         rvCategory.setHasFixedSize(true);
@@ -73,7 +76,7 @@ public class FasilitasActivity extends AppCompatActivity {
     }
 
     private void clickItemDetail(Fasilitas fasilitas){
-        Intent detailActivity = new Intent(this, DetailFasilitasActivity.class);
+        Intent detailActivity = new Intent(this, DetailFasilitassActivity.class);
         startActivity(detailActivity);
     }
 
@@ -82,7 +85,9 @@ public class FasilitasActivity extends AppCompatActivity {
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
-                Fasilitas listBerita = list.get(position);
+                Fasilitas listFasilitas = list.get(position);
+                String id_fasilitas = listFasilitas.getIdFasilitas();
+                sessionManager.createdIdFasilitas(id_fasilitas);
                 clickItemDetail(list.get(position));
             }
         });
