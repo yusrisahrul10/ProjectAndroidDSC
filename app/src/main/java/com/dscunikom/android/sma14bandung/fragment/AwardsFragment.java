@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.activity.DetailAcaraActivity;
 import com.dscunikom.android.sma14bandung.activity.DetailFasilitassActivity;
@@ -44,6 +45,8 @@ public class AwardsFragment extends Fragment {
     ApiInterface apiInterface;
     SessionManager sessionManager;
 
+    ProgressBar progressBar;
+
     public AwardsFragment() {
         // Required empty public constructor
     }
@@ -55,7 +58,7 @@ public class AwardsFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_awards, container, false);
-
+        progressBar = rootView.findViewById(R.id.progressbaraward);
         rvCategory = rootView.findViewById(R.id.rv_awards);
         rvCategory.setHasFixedSize(true);
 
@@ -75,6 +78,7 @@ public class AwardsFragment extends Fragment {
         call.enqueue(new Callback<GetPrestasi>() {
             @Override
             public void onResponse(Call<GetPrestasi> call, Response<GetPrestasi> response) {
+                progressBar.setVisibility(View.GONE);
                 List<Prestasi> listPrestasi = response.body().getResult();
                 adapterPrestasi.setmListPrestasi(listPrestasi);
 //                rvCategory.setAdapter(adapterPrestasi);

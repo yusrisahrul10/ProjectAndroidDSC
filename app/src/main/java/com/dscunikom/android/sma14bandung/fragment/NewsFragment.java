@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.activity.DetailBeritaActivity;
 import com.dscunikom.android.sma14bandung.adapter.AdapterBerita;
@@ -44,6 +45,8 @@ public class NewsFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     SessionManager sessionManager;
 
+    ProgressBar progressBar;
+
     public NewsFragment() {
         // Required empty public constructor
     }
@@ -54,7 +57,7 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_news, container, false);
-
+        progressBar = rootView.findViewById(R.id.progressbarnews);
         recyclerView = rootView.findViewById(R.id.rv_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         sessionManager = new SessionManager(getActivity().getApplicationContext());
@@ -65,6 +68,7 @@ public class NewsFragment extends Fragment {
         call.enqueue(new Callback<GetBerita>() {
             @Override
             public void onResponse(Call<GetBerita> call, Response<GetBerita> response) {
+                progressBar.setVisibility(View.GONE);
                 List<Berita> beritaList = response.body().getGetBerita();
                 String id_berita = new Berita().getId_berita();
                 sessionManager.createIdBerita(id_berita);

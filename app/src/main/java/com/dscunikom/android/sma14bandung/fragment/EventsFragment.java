@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.activity.DetailAcaraActivity;
 import com.dscunikom.android.sma14bandung.activity.DetailBeritaActivity;
@@ -44,6 +45,8 @@ public class EventsFragment extends Fragment {
     ApiInterface apiInterface;
     SessionManager sessionManager;
 
+    ProgressBar progressBar;
+
 
 
     public EventsFragment() {
@@ -54,11 +57,14 @@ public class EventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_events, container, false);
 
         list = new ArrayList<>();
         list.addAll(PresidentData.getListData());
+        progressBar =rootView.findViewById(R.id.progressbarevent);
         recyclerView = rootView.findViewById(R.id.rv_event);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         final AdapterAcara adapterAcara = new AdapterAcara(this.getActivity());
@@ -70,8 +76,12 @@ public class EventsFragment extends Fragment {
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetAcara> call = apiInterface.getAcara();
         call.enqueue(new Callback<GetAcara>() {
+
+
+
             @Override
             public void onResponse(Call<GetAcara> call, Response<GetAcara> response) {
+                progressBar.setVisibility(View.GONE);
                 List<Acara> listAcara = response.body().getResult();
                 Log.e("Acara ","OnRespone Acara : "+String.valueOf(listAcara.size()));
             adapterAcara.setmListAcara(listAcara);

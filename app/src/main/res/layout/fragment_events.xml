@@ -14,5 +14,11 @@
         android:padding="6dp"
         tools:listitem="@layout/item_cardview_news_event">
     </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/progressbarevent"
+        android:layout_gravity="center"/>
+
 
 </FrameLayout>

@@ -3,7 +3,9 @@ package com.dscunikom.android.sma14bandung.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -36,11 +38,16 @@ public class DetailPrestasiActivity extends AppCompatActivity {
     @BindView(R.id.imageDetailPrestasi)
     ImageView imgDetail;
 
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_prestasi);
+
+        progressBar = findViewById(R.id.progressbarprestasi);
+
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         getData();
@@ -56,6 +63,8 @@ public class DetailPrestasiActivity extends AppCompatActivity {
         call.enqueue(new Callback<Prestasi>() {
             @Override
             public void onResponse(Call<Prestasi> call, Response<Prestasi> response) {
+                progressBar.setVisibility(View.GONE);
+
 //                Acara ambilData = new Acara();
                 tvKeterangan.setText(response.body().getKeterangan());
                 tvNamaPrestasi.setText(response.body().getNamaPrestasi());

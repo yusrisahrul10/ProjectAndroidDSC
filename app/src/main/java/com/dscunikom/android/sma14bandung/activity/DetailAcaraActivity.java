@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,11 +37,15 @@ public class DetailAcaraActivity extends AppCompatActivity {
     @BindView(R.id.imageDetail)
     ImageView imgDetail;
 
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_acara);
+
+        progressBar = findViewById(R.id.progressbaracara);
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         getData();
@@ -56,6 +62,7 @@ public class DetailAcaraActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Acara> call, Response<Acara> response) {
 //                Acara ambilData = new Acara();
+                progressBar.setVisibility(View.GONE);
                 tvIsiBerita.setText(response.body().getKeterangan());
                 tvJudul.setText(response.body().getNamaAcara());
                 tvTanggal.setText(response.body().getTanggal());
