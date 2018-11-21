@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data       android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id"/>
         <activity
             android:name=".activity.PreloadActivity"
             android:launchMode="singleTop"
@@ -65,7 +69,15 @@
         <activity android:name=".activity.GuruActivity" />
         <activity android:name=".activity.DetailGuruActivity" />
         <activity android:name=".activity.KalendarActivity" />
-        <activity android:name=".activity.DetailBeritaActivity" />
+        <activity android:name=".activity.DetailBeritaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+            <intent-filter>
+                <action android:name="BERITAACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.FasilitasActivity" />
         <activity android:name=".activity.EkskulActivity" />
@@ -77,8 +89,7 @@
                 android:value=".activity.MainActivity" />
 
             <intent-filter>
-                <action android:name="DETAILACTIVITY" />
-
+                <action android:name="ACARAACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -90,7 +101,13 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.DetailEkstraActivity" />
         <activity android:name=".activity.DetailFasilitassActivity" />
-        <activity android:name=".activity.DetailPrestasiActivity"></activity>
+        <activity android:name=".activity.DetailPrestasiActivity">
+
+            <intent-filter>
+                <action android:name="PRESTASIACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

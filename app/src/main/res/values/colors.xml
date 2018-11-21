@@ -6,6 +6,7 @@
     <color name="colorAccent">#ededed</color>
     <color name="lighgrey">#ededed</color>
     <color name="colorApps">#ff7043</color>
+    <color name="colorAja">#f26f0b</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="default_circle_indicator_fill_color">@color/colorPrimary</color>

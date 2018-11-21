@@ -1,16 +1,20 @@
 package com.dscunikom.android.sma14bandung.firebase;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.activity.DetailAcaraActivity;
+import com.dscunikom.android.sma14bandung.activity.DetailBeritaActivity;
+import com.dscunikom.android.sma14bandung.activity.DetailPrestasiActivity;
 import com.dscunikom.android.sma14bandung.activity.EkskulActivity;
 import com.dscunikom.android.sma14bandung.activity.PreloadActivity;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
@@ -26,6 +30,7 @@ import java.util.Map;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     SessionManager sessionManager;
+    Context context;
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
@@ -36,11 +41,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData().size());
 
             onMessageRecivedAcara(remoteMessage);
-
+            onMessageRecivedBerita(remoteMessage);
+            onMessageRecivedPrestasi(remoteMessage);
             String activity = remoteMessage.getData().get("click_action");
             String body = remoteMessage.getData().get("body");
             Log.d(TAG, "ID ACARA : " + remoteMessage.getData().get("id_acara"));
-
             sendNotification(body,activity);
         }
 
@@ -71,26 +76,40 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(0, notificationBuilder.build());
+        notificationManager.notify(1, notificationBuilder.build());
     }
     private void onMessageRecivedAcara(RemoteMessage remoteMessage){
-//        try {
-//            JSONObject data = new JSONObject(remoteMessage.getData().get("id_acara"));
 
-//            String id = data.getString("id_acara");
             sessionManager = new SessionManager(getApplicationContext());
             sessionManager.createIdAcara(remoteMessage.getData().get("id_acara"));
             Log.d("ID_ACARRA ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_acara")));
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//
-//
-//        }
+
+    }
+    private void onMessageRecivedBerita(RemoteMessage remoteMessage){
+
+
+        sessionManager = new SessionManager(getApplicationContext());
+        sessionManager.createIdBerita(remoteMessage.getData().get("id_berita"));
+        Log.d("ID_BERITA ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_berita")));
+    }
+    private void onMessageRecivedPrestasi(RemoteMessage remoteMessage){
+
+        if(remoteMessage.getData().get("id_prestasi") != null){
+            sessionManager = new SessionManager(getApplicationContext());
+            sessionManager.createdIdPrestasi(remoteMessage.getData().get("id_prestasi"));
+            Log.d("id_prestasi ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_prestasi")));
+        }
+
     }
     private Intent sendMessage(String activity, Intent intent){
-        if(activity.equals("DETAILACTIVITY")){
+        if(activity.equals("ACARAACTIVITY")){
             intent = new Intent(this,DetailAcaraActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }else if(activity.equals("BERITAACTIVITY")){
+            intent = new Intent(this,DetailBeritaActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }else if(activity.equals("PRESTASIACTIVITY")){
+            intent = new Intent(this,DetailPrestasiActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
         return intent;

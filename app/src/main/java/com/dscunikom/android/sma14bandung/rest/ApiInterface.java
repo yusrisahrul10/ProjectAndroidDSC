@@ -50,6 +50,9 @@ public interface ApiInterface {
     @GET("prestasi")
     Call<GetPrestasi> getPrestasi();
 
+    @GET("prestasi/limit")
+    Call<GetPrestasi> getPrestasiLimit();
+
     @GET("prestasi")
     Call<Prestasi> getDetailPrestasi(@Query("id_prestasi") String id_prestasi);
 
