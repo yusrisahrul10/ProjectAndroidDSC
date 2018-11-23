@@ -167,7 +167,7 @@ public class HomeFragment extends Fragment {
 //                Toast.makeText(getActivity(), "Your Location is - \nLat: " + latti + "\nLong: " + longi, Toast.LENGTH_LONG).show();
 
             } else {
-                Toast.makeText(getActivity(), "NULL", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Silahkan Aktifkan GPS Anda Terlebih Dahulu", Toast.LENGTH_LONG).show();
 
             }
         }

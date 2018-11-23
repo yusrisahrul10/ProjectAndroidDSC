@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -107,16 +108,27 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_teacher) {
+
             Intent intent = new Intent(this, GuruActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(intent);
+            ActivityCompat.finishAffinity(MainActivity.this);
+
 
         } else if (id == R.id.nav_calendar) {
             Intent intent = new Intent(this, KalendarActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(intent);
+            ActivityCompat.finishAffinity(MainActivity.this);
+
 
         } else if (id == R.id.nav_contact) {
             Intent intent = new Intent(this, KontakActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            ActivityCompat.finishAffinity(MainActivity.this);
 
         }
 

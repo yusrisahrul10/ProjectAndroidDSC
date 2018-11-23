@@ -3,6 +3,7 @@ package com.dscunikom.android.sma14bandung.activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -43,6 +44,9 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            Intent goToMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            goToMainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Will clear out your activity history stack till now
+            startActivity(goToMainActivity);
         }
     }
     @Override
@@ -57,23 +61,35 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
         if (id == R.id.nav_home) {
             // Handle the camera action
             Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            ActivityCompat.finishAffinity(KalendarActivity.this);
         } else if (id == R.id.nav_teacher) {
             Intent intent = new Intent(this, GuruActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            ActivityCompat.finishAffinity(KalendarActivity.this);
+
 
         } else if (id == R.id.nav_calendar) {
-            Intent intent = new Intent(this, KalendarActivity.class);
-            startActivity(intent);
+
 
         } else if (id == R.id.nav_contact) {
             Intent intent = new Intent(this, KontakActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(intent);
+            ActivityCompat.finishAffinity(KalendarActivity.this);
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
