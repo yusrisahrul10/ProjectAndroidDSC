@@ -150,12 +150,12 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             ActivityCompat.finishAffinity(KontakActivity.this);
-
-        } else if (id == R.id.nav_calendar) {
-            Intent intent = new Intent(this, KalendarActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            ActivityCompat.finishAffinity(KontakActivity.this);
+//
+//        } else if (id == R.id.nav_calendar) {
+//            Intent intent = new Intent(this, KalendarActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent);
+//            ActivityCompat.finishAffinity(KontakActivity.this);
 
 
         } else if (id == R.id.nav_contact) {

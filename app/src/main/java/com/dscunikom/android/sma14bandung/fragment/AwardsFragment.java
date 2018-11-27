@@ -11,14 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.dscunikom.android.sma14bandung.activity.DetailAcaraActivity;
-import com.dscunikom.android.sma14bandung.activity.DetailFasilitassActivity;
 import com.dscunikom.android.sma14bandung.activity.DetailPrestasiActivity;
 import com.dscunikom.android.sma14bandung.adapter.AdapterPrestasi;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
-import com.dscunikom.android.sma14bandung.model.Acara;
-import com.dscunikom.android.sma14bandung.model.Fasilitas;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.model.Prestasi;

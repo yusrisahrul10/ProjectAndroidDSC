@@ -8,8 +8,8 @@ import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.model.Acara;
 import com.dscunikom.android.sma14bandung.model.Ekstrakulikuler;
-import com.dscunikom.android.sma14bandung.model.Fasilitas;
 import com.dscunikom.android.sma14bandung.model.Prestasi;
+import com.dscunikom.android.sma14bandung.getModel.GetGambarFasilitas;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -31,8 +31,8 @@ public interface ApiInterface {
     @GET("fasilitas")
     Call<GetFasilitas> getFasilitas();
 
-    @GET("fasilitas")
-    Call<Fasilitas>getDetailFasilitas(@Query("id_fasilitas")String id_fasilitas);
+    @GET("fasilitas/get_gambar")
+    Call<GetGambarFasilitas>getDetailFasilitas(@Query("id_fasilitas")String id_fasilitas);
 
 
     @GET("ekstrakulikuler")

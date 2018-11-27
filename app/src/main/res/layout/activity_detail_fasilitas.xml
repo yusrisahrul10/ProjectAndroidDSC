@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailFasilitasActivity">
+    android:layout_height="wrap_content"
+    tools:context=".activity.DetailFasilitasActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logobandung"
-            android:id="@+id/img_content_detail_first">
-
-        </ImageView>
+            android:layout_height="?attr/actionBarSize"
+            android:background="#ff7043"
+            app:titleTextColor="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/detail_fasilitass" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_detail_content"
-            android:layout_width="wrap_content"
+            android:layout_below="@+id/toolbar6"
+            android:id="@+id/rv_detail_fasilitas"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/img_content_detail_first"
-            tools:listitem="@layout/item_grid_detail_fasilitas_ekskul"
-            android:nestedScrollingEnabled="false">
+            tools:listitem="@layout/item_grid_detail_fasilitas_ekskul">
 
         </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 
-</ScrollView>
+</RelativeLayout>

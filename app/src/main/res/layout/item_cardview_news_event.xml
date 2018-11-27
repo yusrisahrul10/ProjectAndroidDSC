@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/img_content"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="116dp"
             android:layout_marginBottom="4dp"
             android:scaleType="centerCrop"
             android:layout_marginTop="4dp"
@@ -48,7 +48,32 @@
             android:id="@+id/tv_date_content"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Tanggal"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_date_content"
+            android:layout_toRightOf="@id/img_content"
+            android:layout_toEndOf="@id/img_content"
+            android:lines="2"
+            android:id="@+id/tv_deskripsi"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="Deskripsinya wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_deskripsi"
+            android:layout_toRightOf="@id/img_content"
+            android:layout_toEndOf="@id/img_content"
+            android:id="@+id/tv_readmore"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="110dp"
+            android:text="Baca Selengkapnya"/>
+
     </RelativeLayout>
 </android.support.v7.widget.CardView>

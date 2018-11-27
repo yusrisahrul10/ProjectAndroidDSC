@@ -93,14 +93,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailFasilitasActivity" />
         <activity android:name=".DetailEkskulActivity" />
         <activity
             android:name=".activity.GuruDrawerActivity"
             android:label="@string/title_activity_guru_drawer"
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.DetailEkstraActivity" />
-        <activity android:name=".activity.DetailFasilitassActivity" />
+        <activity android:name=".activity.DetailFasilitasActivity" />
         <activity android:name=".activity.DetailPrestasiActivity">
 
             <intent-filter>

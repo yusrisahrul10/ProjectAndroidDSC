@@ -6,7 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".activity.FasilitasActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar5"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ff7043"
+        app:titleTextColor="@color/colorWhite"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="@string/fasilitas" />
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/toolbar5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_grid_fasilitas"

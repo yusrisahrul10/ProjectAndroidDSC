@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activity.DetailBeritaActivity"
     android:orientation="vertical">
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ff7043"
+        app:titleTextColor="@color/colorWhite"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="@string/detil_berita" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,16 +26,22 @@
             <ImageView
                 android:id="@+id/imageDetail"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="260dp"
                 android:adjustViewBounds="true"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
                 android:scaleType="fitXY"
                 tools:src="@drawable/sman14"/>
 
             <TextView
                 android:id="@+id/txtJudul"
+                android:text="judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ff7043"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 android:padding="5dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
@@ -38,21 +51,24 @@
                 android:id="@+id/txtTanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:text="tanggalnya"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 android:background="#ff7043"
                 android:paddingLeft="10dp"
                 android:textColor="@color/colorWhite"
-                android:textSize="15sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtIsiBerita"
+              android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
+                android:text="Isi bertita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:paddingLeft="5dp"
-
                 android:textColor="#2d3436"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/txtSumber"

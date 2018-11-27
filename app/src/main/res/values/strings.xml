@@ -39,5 +39,14 @@ Aenean sed leo vulputate, pulvinar nunc eget, tempor orci. Quisque neque ipsum, 
     <string name="title_activity_guru_drawer">GuruDrawerActivity</string>
     <string name="kepala_sekolah">Kepala Sekolah</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="detil_berita">Detail Berita</string>
+    <string name="detil_acara">Detail Acara</string>
+    <string name="detil_prestasi">Detail Prestasi</string>
+    <string name="detil_profile">Profile Sekolah</string>
+    <string name="detil_fasilitas">Fasilitas</string>
+    <string name="fasilitas">Fasilitas</string>
+    <string name="detail_fasilitass">Detail Fasilitas</string>
+    <string name="eskul">Ekstrakulikuler</string>
+    <string name="ekstra">Detail Ekstrakulikuler</string>
 
 </resources>

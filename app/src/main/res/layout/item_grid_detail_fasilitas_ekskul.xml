@@ -4,13 +4,17 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_content_detail_sec"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:layout_margin="1dp"
-            tools:src="@color/colorPrimary" />
+                <ImageView
+                    android:id="@+id/img_content_detail_sec"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="fitXY"
+                    android:layout_margin="1dp"
+                    tools:src="@drawable/animasi" />
 
+        </RelativeLayout>
 </LinearLayout>

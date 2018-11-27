@@ -5,26 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
-import com.dscunikom.android.sma14bandung.DetailFasilitasActivity;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterFasilitas;
-import com.dscunikom.android.sma14bandung.adapter.AdapterGridFasilitasEkskul;
 import com.dscunikom.android.sma14bandung.getModel.GetFasilitas;
-import com.dscunikom.android.sma14bandung.model.Berita;
 import com.dscunikom.android.sma14bandung.model.Fasilitas;
-import com.dscunikom.android.sma14bandung.model.President;
-import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,6 +43,10 @@ public class FasilitasActivity extends AppCompatActivity {
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
         getData();
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar5);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void getData(){
@@ -62,7 +60,6 @@ public class FasilitasActivity extends AppCompatActivity {
                 AdapterFasilitas adapterFasilitas = new AdapterFasilitas(FasilitasActivity.this);
                 adapterFasilitas.setmListFasilitas(listFasilitas);
                 rvCategory.setAdapter(adapterFasilitas);
-
                 reloadView(adapterFasilitas,listFasilitas);
 
 
@@ -76,7 +73,7 @@ public class FasilitasActivity extends AppCompatActivity {
     }
 
     private void clickItemDetail(Fasilitas fasilitas){
-        Intent detailActivity = new Intent(this, DetailFasilitassActivity.class);
+        Intent detailActivity = new Intent(this, DetailFasilitasActivity.class);
         startActivity(detailActivity);
     }
 
@@ -91,5 +88,22 @@ public class FasilitasActivity extends AppCompatActivity {
                 clickItemDetail(list.get(position));
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home : {
+                finish();
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                break;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }

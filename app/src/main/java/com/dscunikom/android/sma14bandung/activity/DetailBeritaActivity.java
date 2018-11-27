@@ -2,6 +2,8 @@ package com.dscunikom.android.sma14bandung.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,6 +20,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +48,11 @@ SessionManager sessionManager;
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         getData();
+
+
+        Toolbar ToolBarBerita = (Toolbar)findViewById(R.id.toolbar1);
+        setSupportActionBar(ToolBarBerita);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void getData(){
@@ -74,5 +82,23 @@ SessionManager sessionManager;
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home : {
+                finish();
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                break;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }

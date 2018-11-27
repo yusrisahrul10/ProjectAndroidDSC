@@ -5,16 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
-import com.dscunikom.android.sma14bandung.DetailEkskulActivity;
-import com.dscunikom.android.sma14bandung.DetailFasilitasActivity;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterEkskul;
-import com.dscunikom.android.sma14bandung.adapter.AdapterGridFasilitasEkskul;
 import com.dscunikom.android.sma14bandung.getModel.GetEkstra;
 import com.dscunikom.android.sma14bandung.model.Ekstrakulikuler;
-import com.dscunikom.android.sma14bandung.model.Fasilitas;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.PresidentData;
 import com.dscunikom.android.sma14bandung.rest.Api;
@@ -50,6 +48,10 @@ public class EkskulActivity extends AppCompatActivity {
 
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
         getData();
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar7);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -89,5 +91,22 @@ public class EkskulActivity extends AppCompatActivity {
                 clickItemDetail(list.get(position));
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home : {
+                finish();
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                break;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }

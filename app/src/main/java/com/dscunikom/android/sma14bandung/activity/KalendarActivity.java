@@ -71,7 +71,7 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             ActivityCompat.finishAffinity(KalendarActivity.this);
 
 
-        } else if (id == R.id.nav_calendar) {
+//        } else if (id == R.id.nav_calendar) {
 
 
         } else if (id == R.id.nav_contact) {
