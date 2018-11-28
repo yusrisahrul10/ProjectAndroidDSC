@@ -1,6 +1,8 @@
 package com.dscunikom.android.sma14bandung.activity;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -31,14 +33,14 @@ public class FasilitasActivity extends AppCompatActivity {
     RecyclerView rvCategory;
     SessionManager sessionManager;
     ProgressBar progressBar;
-
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fasilitas);
-
+        swipeRefreshLayout = findViewById(R.id.swLayout);
         progressBar = findViewById(R.id.progressbarfasilitas);
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -51,6 +53,20 @@ public class FasilitasActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar5);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorRedSwipe,R.color.colorGraySwipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getData();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+
+            }
+        });
 
     }
 

@@ -3,7 +3,9 @@ package com.dscunikom.android.sma14bandung.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,6 +44,7 @@ public class AwardsFragment extends Fragment {
     SessionManager sessionManager;
 
     ProgressBar progressBar;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public AwardsFragment() {
         // Required empty public constructor
@@ -57,6 +60,7 @@ public class AwardsFragment extends Fragment {
         progressBar = rootView.findViewById(R.id.progressbaraward);
         rvCategory = rootView.findViewById(R.id.rv_awards);
         rvCategory.setHasFixedSize(true);
+        swipeRefreshLayout = rootView.findViewById(R.id.swLayout);
 
         list = new ArrayList<>();
         list.addAll(PresidentData.getListData());
@@ -65,7 +69,29 @@ public class AwardsFragment extends Fragment {
 //        AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
 //        adapterPrestasi.setListPresident(list);
 //        rvCategory.setAdapter(adapterPrestasi);
+        getData();
 
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorRedSwipe,R.color.colorGraySwipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getData();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+
+            }
+        });
+
+        return rootView;
+
+
+    }
+
+    private void getData(){
         final AdapterPrestasi adapterPrestasi = new AdapterPrestasi(this.getActivity());
         sessionManager = new SessionManager(getActivity().getApplicationContext());
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
@@ -87,9 +113,6 @@ public class AwardsFragment extends Fragment {
 
             }
         });
-        return rootView;
-
-
     }
 
     private void clickItemDetail(Prestasi prestasi){

@@ -3,7 +3,9 @@ package com.dscunikom.android.sma14bandung.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -44,6 +46,7 @@ public class NewsFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     SessionManager sessionManager;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     ProgressBar progressBar;
 
@@ -61,7 +64,35 @@ public class NewsFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.rv_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         sessionManager = new SessionManager(getActivity().getApplicationContext());
+        swipeRefreshLayout = rootView.findViewById(R.id.swLayout);
 
+        getData();
+
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorRedSwipe,R.color.colorGraySwipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getData();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+
+            }
+        });
+
+
+        return rootView;
+    }
+    private void clickItemDetail(Berita berita){
+        Intent detailActivity = new Intent(getActivity(), DetailBeritaActivity.class);
+        startActivity(detailActivity);
+        getActivity().overridePendingTransition(0,0);
+    }
+
+    private void getData(){
         final AdapterBerita adapterBerita = new AdapterBerita(this.getActivity());
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetBerita> call = apiInterface.getBerita();
@@ -82,13 +113,6 @@ public class NewsFragment extends Fragment {
             public void onFailure(Call<GetBerita> call, Throwable t) {
             }
         });
-
-        return rootView;
-    }
-    private void clickItemDetail(Berita berita){
-        Intent detailActivity = new Intent(getActivity(), DetailBeritaActivity.class);
-        startActivity(detailActivity);
-        getActivity().overridePendingTransition(0,0);
     }
 
     public void reloadView(RecyclerView.Adapter adapter, final List<Berita> list ){

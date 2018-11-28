@@ -7,6 +7,8 @@
     <color name="lighgrey">#ededed</color>
     <color name="colorApps">#ff7043</color>
     <color name="colorAja">#f26f0b</color>
+    <color name="colorRedSwipe">#e74c3c</color>
+    <color name="colorGraySwipe">#7f8c8d</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="default_circle_indicator_fill_color">@color/colorPrimary</color>

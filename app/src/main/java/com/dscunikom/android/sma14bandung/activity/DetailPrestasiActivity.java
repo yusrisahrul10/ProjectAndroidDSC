@@ -20,6 +20,9 @@ import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -74,7 +77,20 @@ public class DetailPrestasiActivity extends AppCompatActivity {
 //                Acara ambilData = new Acara();
                 tvKeterangan.setText(response.body().getKeterangan());
                 tvNamaPrestasi.setText(response.body().getNamaPrestasi());
-                tvTanggal.setText(response.body().getTanggal());
+
+                String getDate = response.body().getTanggal();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = dateFormat.parse(getDate);
+                    SimpleDateFormat newFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+                    String dateFix = newFormat.format(date);
+                    tvTanggal.setText(dateFix);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+//                tvTanggal.setText(response.body().getTanggal());
                 Glide.with(DetailPrestasiActivity.this)
                         .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/".concat(response.body().getImage()))
                         .into(imgDetail);

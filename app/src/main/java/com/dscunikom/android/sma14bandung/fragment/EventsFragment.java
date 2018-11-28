@@ -3,7 +3,9 @@ package com.dscunikom.android.sma14bandung.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,6 +49,7 @@ public class EventsFragment extends Fragment {
 
     ProgressBar progressBar;
 
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     public EventsFragment() {
@@ -61,12 +64,34 @@ public class EventsFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_events, container, false);
+        swipeRefreshLayout = rootView.findViewById(R.id.swLayout);
 
         list = new ArrayList<>();
         list.addAll(PresidentData.getListData());
         progressBar =rootView.findViewById(R.id.progressbarevent);
         recyclerView = rootView.findViewById(R.id.rv_event);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        getData();
+
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorRedSwipe,R.color.colorGraySwipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getData();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+
+            }
+        });
+
+        return rootView;
+    }
+
+    private void getData(){
         final AdapterAcara adapterAcara = new AdapterAcara(this.getActivity());
         sessionManager = new SessionManager(getActivity().getApplicationContext());
 //        CardViewNewsEventAdapter cardViewNewsEventAdapter = new CardViewNewsEventAdapter(this.getActivity());
@@ -84,9 +109,9 @@ public class EventsFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 List<Acara> listAcara = response.body().getResult();
                 Log.e("Acara ","OnRespone Acara : "+String.valueOf(listAcara.size()));
-            adapterAcara.setmListAcara(listAcara);
+                adapterAcara.setmListAcara(listAcara);
 //            recyclerView.setAdapter(adapterAcara);
-            reloadView(adapterAcara,listAcara);
+                reloadView(adapterAcara,listAcara);
             }
 
             @Override
@@ -94,7 +119,6 @@ public class EventsFragment extends Fragment {
 
             }
         });
-        return rootView;
     }
 
     private void clickItemDetail(Acara acara){
