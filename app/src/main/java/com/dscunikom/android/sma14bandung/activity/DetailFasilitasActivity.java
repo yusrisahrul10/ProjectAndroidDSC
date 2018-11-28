@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterGambarFasilitas;
@@ -36,11 +38,16 @@ public class DetailFasilitasActivity extends AppCompatActivity {
 //        @BindView(R.id.imageDetailFasilitas)
 //        ImageView imgDetail;
 
+        ProgressBar progressBar;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_fasilitas);
+
+        progressBar = findViewById(R.id.progressbaredetailfasilitas);
+
             ButterKnife.bind(this);
             FirebaseMessaging.getInstance().subscribeToTopic("helsan");
            myRecycler = (RecyclerView) findViewById(R.id.rv_detail_fasilitas);
@@ -70,6 +77,7 @@ public class DetailFasilitasActivity extends AppCompatActivity {
             call.enqueue(new Callback<GetGambarFasilitas>() {
                 @Override
                 public void onResponse(Call<GetGambarFasilitas> call, Response<GetGambarFasilitas> response) {
+                    progressBar.setVisibility(View.GONE);
                     List<GambarFasilitas> gambarFasilitas = response.body().getGambarFasilitas();
                     Log.e("onRespone : ", "Gambar Fasilitas : "+String.valueOf(gambarFasilitas.size()));
                     AdapterGambarFasilitas adapterGambarFasilitas = new AdapterGambarFasilitas(DetailFasilitasActivity.this);

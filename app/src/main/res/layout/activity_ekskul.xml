@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.EkskulActivity">
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar7"
         android:layout_width="match_parent"
@@ -13,12 +15,20 @@
         app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="@string/eskul" />
+
+    <ProgressBar
+        android:id="@+id/progressbareskul"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/toolbar7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_grid_ekskul"
         tools:listitem="@layout/item_grid_fasilitas_ekskul">
+
 
     </android.support.v7.widget.RecyclerView>
 

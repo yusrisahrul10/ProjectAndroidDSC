@@ -57,7 +57,11 @@
                 android:paddingLeft="5dp"
                 android:textColor="#2d3436"
                 android:textSize="15sp" />
-
+            <ProgressBar
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/progressbarekstra"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
 

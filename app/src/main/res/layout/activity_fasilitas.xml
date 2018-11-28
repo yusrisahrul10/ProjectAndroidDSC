@@ -14,6 +14,12 @@
         app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="@string/fasilitas" />
+    <ProgressBar
+        android:id="@+id/progressbarfasilitas"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/toolbar5"

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterEkskul;
@@ -33,11 +34,16 @@ public class EkskulActivity extends AppCompatActivity {
     RecyclerView rvCategory;
     private ArrayList<President> list;
     SessionManager sessionManager;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ekskul);
+
+        progressBar = findViewById(R.id.progressbareskul);
+
+
         sessionManager = new SessionManager(getApplicationContext());
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_ekskul);
@@ -61,6 +67,8 @@ public class EkskulActivity extends AppCompatActivity {
         call.enqueue(new Callback<GetEkstra>() {
             @Override
             public void onResponse(Call<GetEkstra> call, Response<GetEkstra> response) {
+                progressBar.setVisibility(View.GONE);
+
                 List<Ekstrakulikuler> ekstrakulikulers = response.body().getResult();
                 AdapterEkskul adapterEkskul = new AdapterEkskul(EkskulActivity.this);
                 adapterEkskul.setmListEkstra(ekstrakulikulers);

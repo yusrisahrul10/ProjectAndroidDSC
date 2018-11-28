@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,11 +37,16 @@ public class DetailEkstraActivity extends AppCompatActivity {
         @BindView(R.id.imageDetailEksra)
         ImageView imgDetail;
 
+        ProgressBar progressBar;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_detail_ekstra);
+
+            progressBar = findViewById(R.id.progressbarekstra);
+
             ButterKnife.bind(this);
             FirebaseMessaging.getInstance().subscribeToTopic("helsan");
             getData();
@@ -59,6 +66,7 @@ public class DetailEkstraActivity extends AppCompatActivity {
             call.enqueue(new Callback<Ekstrakulikuler>() {
                 @Override
                 public void onResponse(Call<Ekstrakulikuler> call, Response<Ekstrakulikuler> response) {
+                    progressBar.setVisibility(View.GONE);
 //                Acara ambilData = new Acara();
                     tvIsiEkstra.setText(response.body().getKeterangan());
                     tvNamaEkstra.setText(response.body().getNamaEkstra());

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterFasilitas;
@@ -29,6 +30,7 @@ public class FasilitasActivity extends AppCompatActivity {
 
     RecyclerView rvCategory;
     SessionManager sessionManager;
+    ProgressBar progressBar;
 
 
 
@@ -36,6 +38,9 @@ public class FasilitasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fasilitas);
+
+        progressBar = findViewById(R.id.progressbarfasilitas);
+
         sessionManager = new SessionManager(getApplicationContext());
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
         rvCategory = findViewById(R.id.rv_grid_fasilitas);
@@ -56,6 +61,9 @@ public class FasilitasActivity extends AppCompatActivity {
         call.enqueue(new Callback<GetFasilitas>() {
             @Override
             public void onResponse(Call<GetFasilitas> call, Response<GetFasilitas> response) {
+                progressBar.setVisibility(View.GONE);
+
+
                 List<Fasilitas> listFasilitas = response.body().getResult();
                 AdapterFasilitas adapterFasilitas = new AdapterFasilitas(FasilitasActivity.this);
                 adapterFasilitas.setmListFasilitas(listFasilitas);
