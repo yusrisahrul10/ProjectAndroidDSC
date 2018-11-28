@@ -10,6 +10,9 @@
     android:layout_marginBottom="4dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
+    card_view:cardElevation="3dp"
+    card_view:cardBackgroundColor="@color/colorWhite"
+    android:elevation="10dp"
     card_view:cardCornerRadius="4dp">
 
     <RelativeLayout
@@ -36,7 +39,8 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_toEndOf="@id/img_content"
             android:layout_toRightOf="@id/img_content"
-            android:textSize="16sp"
+            android:textColor="#212121"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:text="Judul"/>
         <TextView
@@ -46,6 +50,7 @@
             android:layout_toRightOf="@id/img_content"
             android:layout_toEndOf="@id/img_content"
             android:id="@+id/tv_date_content"
+            android:textColor="#6c6c6c"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -57,6 +62,7 @@
             android:layout_toRightOf="@id/img_content"
             android:layout_toEndOf="@id/img_content"
             android:lines="2"
+            android:textColor="#363636"
             android:id="@+id/tv_deskripsi"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="@dimen/activity_vertical_margin"
@@ -69,7 +75,7 @@
             android:layout_toRightOf="@id/img_content"
             android:layout_toEndOf="@id/img_content"
             android:id="@+id/tv_readmore"
-            android:textStyle="bold"
+            android:textColor="#363636"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="@dimen/activity_vertical_margin"
             android:layout_marginLeft="110dp"

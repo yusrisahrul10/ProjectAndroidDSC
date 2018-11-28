@@ -20,5 +20,9 @@
     <style name="AppTheme.WhiteAccent">
         <item name="colorAccent">@color/colorWhite</item> <!-- Whatever color you want-->
     </style>
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/colorWhite</item>
+    </style>
 
 </resources>

@@ -83,7 +83,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(Color.RED);
             notificationChannel.enableVibration(true);
-            notificationChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            notificationChannel.setVibrationPattern(new long[] {100, 200, 300, 400, 500, 400, 300, 200, 400});
             notificationBuilder.setChannelId(body);
             notificationManager.createNotificationChannel(notificationChannel);
         }

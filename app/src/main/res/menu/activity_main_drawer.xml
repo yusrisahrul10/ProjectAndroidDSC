@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/home"
+            android:icon="@drawable/outline_home_24"
             android:title="Beranda" />
         <item
             android:id="@+id/nav_teacher"
@@ -18,8 +18,10 @@
             <!--android:title="Kalender Akademik" />-->
         <item
             android:id="@+id/nav_contact"
-            android:icon="@drawable/kontak"
+            android:icon="@drawable/baseline_contacts_24"
             android:title="Kontak" />
     </group>
 
+
 </menu>
+
