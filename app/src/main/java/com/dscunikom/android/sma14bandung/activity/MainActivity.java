@@ -130,6 +130,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             ActivityCompat.finishAffinity(MainActivity.this);
 
+        }else if (id == R.id.nav_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            ActivityCompat.finishAffinity(MainActivity.this);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

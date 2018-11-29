@@ -4,93 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.DetailGuruActivity">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarguru"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ff7043"
+        app:titleTextColor="@color/colorWhite"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="Detail Guru" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+        <LinearLayout
+            android:background="#fd7043"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img1"
+                android:layout_marginTop="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="150dp"
+                app:civ_border_color="#fdfdfe"
+                app:civ_border_width="3dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ayana" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Ayana"
+                android:textColor="#fff"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Kepala Sekolah"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:gravity="center_vertical|center"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
         android:orientation="vertical">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:layout_margin="10dp"
-            android:layout_height="110dp"
-            android:src="@drawable/ayana"
-            android:id="@+id/img1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kepala_sekolah"
-            android:textColor="#080808"
-            app:layout_editor_absoluteX="112dp"
-            app:layout_editor_absoluteY="128dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:paddingLeft="25dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama : "
-                    android:textColor="#080808" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ayana Jihye Moon"
-                    android:textColor="#080808" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kelasa : Mengajar kelas A "
-                    android:textColor="#080808" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="#080808" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jabatan : "
-                    android:textColor="#080808" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Guru Tercantik"
-                    android:textColor="#080808" />
-            </LinearLayout>
-
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:paddingLeft="40dp"
+                android:text="Kelas Ajar : X-IPA1"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:paddingLeft="40dp"
+                android:text="Mapel : Fisika"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:paddingLeft="40dp"
+                android:text="Email   : Wiliam@gmail.com"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
 </LinearLayout>

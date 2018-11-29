@@ -11,24 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.dscunikom.android.sma14bandung.R;
-import com.google.firebase.messaging.FirebaseMessaging;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class GuruActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-
+public class AboutActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guru);
-        ButterKnife.bind(this);
-        FirebaseMessaging.getInstance().subscribeToTopic("helsan");
+        setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,27 +31,9 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-    }
+        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-            Intent goToMainActivity = new Intent(getApplicationContext(), MainActivity.class);
-            goToMainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Will clear out your activity history stack till now
-            startActivity(goToMainActivity);
-        }
     }
-
-    @OnClick(R.id.img1)
-    public void detailGuru(){
-        startActivity(new Intent(this, DetailGuruActivity.class));
-    }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -76,7 +49,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            ActivityCompat.finishAffinity(GuruActivity.this);
+            ActivityCompat.finishAffinity(AboutActivity.this);
 
         } else if (id == R.id.nav_teacher) {
 
@@ -85,13 +58,13 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, KalendarActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            ActivityCompat.finishAffinity(GuruActivity.this);
+            ActivityCompat.finishAffinity(AboutActivity.this);
 
         } else if (id == R.id.nav_contact) {
             Intent intent = new Intent(this, KontakActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            ActivityCompat.finishAffinity(GuruActivity.this);
+            ActivityCompat.finishAffinity(AboutActivity.this);
 
         }
 
@@ -100,3 +73,4 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 }
+

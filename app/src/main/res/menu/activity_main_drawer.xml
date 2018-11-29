@@ -12,14 +12,18 @@
             android:id="@+id/nav_teacher"
             android:icon="@drawable/outline_person_24"
             android:title="Profil Guru" />
-        <!--<item-->
-            <!--android:id="@+id/nav_calendar"-->
-            <!--android:icon="@drawable/calender"-->
-            <!--android:title="Kalender Akademik" />-->
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/calender"
+            android:title="Kalender Akademik" />
         <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/baseline_contacts_24"
             android:title="Kontak" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/baseline_contacts_24"
+            android:title="About" />
     </group>
 
 
