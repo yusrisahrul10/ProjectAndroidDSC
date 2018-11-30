@@ -1,165 +1,309 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".activity.KalendarActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:layout_marginTop="40dp">
-
+        android:orientation="vertical"
+        android:layout_margin="3dp">
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="29dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/oktober"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="70dp"
+            android:textStyle="bold"
+            android:text="Januari"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/januari"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+        </android.support.v7.widget.RecyclerView>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="73dp"
-            app:srcCompat="@drawable/lingkaran_orange" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="161dp"
-            app:srcCompat="@drawable/lingkaran_biru" />
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="216dp"
-            android:text="@string/september_2018"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Februari"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/februari"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="94dp"
-            android:text="@string/_15"
-            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:text="Maret"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/maret"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="181dp"
-            android:text="@string/_5"
-            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:text="April"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="129dp"
-            app:srcCompat="@drawable/lingkaran_biru" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/april"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="35dp"
-            app:srcCompat="@drawable/lingkaran_orange" />
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="153dp"
-            android:text="@string/_20"
-            android:textColor="@android:color/white"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Mei"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mesi"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="57dp"
-            android:text="@string/_11"
-            android:textColor="@android:color/white"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Juni"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/juni"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView4"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="@string/festival_budaya_2018"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Juli"
             android:textColor="@android:color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/juli"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView5"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="@string/class_meeting_2018"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Agustus"
             android:textColor="@android:color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/agustus"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView7"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="@string/tahun_baru_islam"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="September"
             android:textColor="@android:color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/september"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="205dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView6"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="@string/pembelajaran_penyembelihan_hewan_qurban"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Oktober"
             android:textColor="@android:color/black"
-            android:textSize="15sp" />
-    </RelativeLayout>
+            android:textSize="20sp" />
 
-</LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/oktober"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="November"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/november"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="Desember"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/desember"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_item_kalender">
+
+        </android.support.v7.widget.RecyclerView>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#5c5c5c" />
+
+    </LinearLayout>
+
+</ScrollView>

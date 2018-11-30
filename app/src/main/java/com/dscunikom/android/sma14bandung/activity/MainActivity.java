@@ -116,14 +116,14 @@ public class MainActivity extends AppCompatActivity
             ActivityCompat.finishAffinity(MainActivity.this);
 
 
-//        } else if (id == R.id.nav_calendar) {
-//            Intent intent = new Intent(this, KalendarActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//
-//            startActivity(intent);
-//            ActivityCompat.finishAffinity(MainActivity.this);
-//
-//
+        } else if (id == R.id.nav_calendar) {
+            Intent intent = new Intent(this, KalendarActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            startActivity(intent);
+            ActivityCompat.finishAffinity(MainActivity.this);
+
+
         } else if (id == R.id.nav_contact) {
             Intent intent = new Intent(this, KontakActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
