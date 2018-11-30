@@ -72,7 +72,7 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
                     case R.id.fb:
                         Uri fbpage = Uri.parse("https://www.facebook.com/SMAN-14-Bandung-339617946099977/");
                         Intent fbIntent = new Intent(Intent.ACTION_VIEW, fbpage);
@@ -86,10 +86,10 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
                     case R.id.wa:
                         String number = "+6282295103327";
-                        String url = "https://api.whatsapp.com/send?phone="+number;
+                        String url = "https://api.whatsapp.com/send?phone=" + number;
                         Intent whatsapp = new Intent(Intent.ACTION_VIEW);
                         whatsapp.setData(Uri.parse(url));
                         startActivity(whatsapp);
@@ -101,15 +101,14 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
                     case R.id.ig:
                         Uri ig = Uri.parse("http://instagram.cm/_u/fryantabif");
                         Intent likeIng = new Intent(Intent.ACTION_VIEW, ig);
                         likeIng.setPackage("com.instagram.android");
                         try {
                             startActivity(likeIng);
-                        }
-                        catch (ActivityNotFoundException e){
+                        } catch (ActivityNotFoundException e) {
                             startActivity(new Intent(Intent.ACTION_VIEW,
                                     Uri.parse("http://instagram.com/fryantabif")));
                         }
@@ -134,6 +133,7 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
             startActivity(goToMainActivity);
         }
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -161,11 +161,17 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
         } else if (id == R.id.nav_contact) {
 
 
+        } else if (id == R.id.nav_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            ActivityCompat.finishAffinity(KontakActivity.this);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        }
+
     }
 
-}

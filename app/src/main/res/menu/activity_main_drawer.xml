@@ -22,7 +22,7 @@
             android:title="Kontak" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/baseline_contacts_24"
+            android:icon="@drawable/about"
             android:title="About" />
     </group>
 

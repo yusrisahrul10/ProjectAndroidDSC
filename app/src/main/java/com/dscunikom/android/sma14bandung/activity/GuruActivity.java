@@ -93,6 +93,12 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             ActivityCompat.finishAffinity(GuruActivity.this);
 
+        }  else if (id == R.id.nav_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            ActivityCompat.finishAffinity(GuruActivity.this);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
