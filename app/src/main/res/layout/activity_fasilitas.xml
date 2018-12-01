@@ -28,6 +28,7 @@
         android:background="#ff7043"
         app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/ToolbarTheme"
         app:title="@string/fasilitas" />
     <ProgressBar
         android:id="@+id/progressbarfasilitas"

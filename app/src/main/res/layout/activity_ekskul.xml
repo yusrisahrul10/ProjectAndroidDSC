@@ -11,6 +11,7 @@
         android:id="@+id/toolbar7"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        app:theme="@style/ToolbarTheme"
         android:background="#ff7043"
         app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
@@ -34,8 +35,6 @@
             android:layout_height="match_parent"
             android:id="@+id/rv_grid_ekskul"
             tools:listitem="@layout/item_grid_fasilitas_ekskul">
-
-
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
