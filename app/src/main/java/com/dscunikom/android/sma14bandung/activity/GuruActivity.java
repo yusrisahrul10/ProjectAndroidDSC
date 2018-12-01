@@ -44,7 +44,9 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
 
-        img = findViewById(R.id.img1);
+        img = findViewById(R.id.imgKlik);
+        img.setOnClickListener(this);
+        img = findViewById(R.id.img2);
         img.setOnClickListener(this);
 
     }
@@ -62,10 +64,10 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @OnClick(R.id.img1)
-    public void detailGuru(){
-        startActivity(new Intent(this, DetailGuruActivity.class));
-    }
+//    @OnClick(R.id.img1)
+//    public void detailGuru(){
+//        startActivity(new Intent(this, DetailGuruActivity.class));
+//    }
 
 
     @Override
@@ -114,6 +116,28 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View v) {
-        
+        switch (v.getId()) {
+            case R.id.imgKlik:
+
+                Intent moveWithDataIntent = new Intent(GuruActivity.this, DetailGuruActivity.class);
+                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_NAME, "DicodingAcademy Boy");
+                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Biologi");
+                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@surabaya");
+                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 8");
+
+//                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
+                startActivity(moveWithDataIntent);
+                break;
+            case R.id.img2:
+
+                Intent moveImage2 = new Intent(GuruActivity.this, DetailGuruActivity.class);
+                moveImage2.putExtra(DetailGuruActivity.EXTRA_NAME, "CUUUUU");
+                moveImage2.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Fisika");
+                moveImage2.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@jampang");
+                moveImage2.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 2");
+//                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
+                startActivity(moveImage2);
+                break;
+        }
     }
 }

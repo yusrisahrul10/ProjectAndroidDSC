@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#ff7043"
+        app:theme="@style/ToolbarTheme"
         app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="@string/detil_profile" />
