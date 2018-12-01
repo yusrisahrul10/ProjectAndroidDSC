@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dscunikom.android.sma14bandung.R;
@@ -19,9 +21,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class GuruActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class GuruActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,10 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
+
+        img = findViewById(R.id.img1);
+        img.setOnClickListener(this);
+
     }
 
     @Override
@@ -104,5 +110,10 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }

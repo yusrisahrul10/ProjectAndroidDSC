@@ -6,32 +6,36 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarguru"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#ff7043"
-        app:titleTextColor="@color/colorWhite"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:title="Detail Guru" />
+        app:title="Detail Guru"
+        app:titleTextColor="@color/colorWhite" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="350dp">
+
         <LinearLayout
-            android:background="#fd7043"
             android:layout_width="match_parent"
             android:layout_height="350dp"
+            android:background="#fd7043"
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img1"
-                android:layout_marginTop="45dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
-                app:civ_border_color="#fdfdfe"
-                app:civ_border_width="3dp"
                 android:layout_height="150dp"
-                android:src="@drawable/ayana" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/ayana"
+                app:civ_border_color="#fdfdfe"
+                app:civ_border_width="3dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,9 +77,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="18dp"
                 android:paddingLeft="40dp"
                 android:text="Kelas Ajar : X-IPA1"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -91,9 +95,9 @@
 
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="18dp"
                 android:paddingLeft="40dp"
                 android:text="Mapel : Fisika"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -103,13 +107,14 @@
             android:layout_marginTop="25dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="18dp"
                 android:paddingLeft="40dp"
                 android:text="Email   : Wiliam@gmail.com"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
