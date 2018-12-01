@@ -116,6 +116,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View v) {
+<<<<<<< Updated upstream
         switch (v.getId()) {
             case R.id.imgKlik:
 
@@ -139,5 +140,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(moveImage2);
                 break;
         }
+=======
+
+>>>>>>> Stashed changes
     }
 }
