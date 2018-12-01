@@ -10,6 +10,20 @@ public class Guru implements Parcelable {
     private String email;
     private String kelas;
 
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+
+    public static Creator<Guru> getCREATOR() {
+        return CREATOR;
+    }
+
+    private  String jabatan;
+
     public String getId_img() {
         return id_img;
     }
@@ -50,6 +64,9 @@ public class Guru implements Parcelable {
         this.kelas = kelas;
     }
 
+    public Guru() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -62,9 +79,7 @@ public class Guru implements Parcelable {
         dest.writeString(this.mapel);
         dest.writeString(this.email);
         dest.writeString(this.kelas);
-    }
-
-    public Guru() {
+        dest.writeString(this.jabatan);
     }
 
     protected Guru(Parcel in) {
@@ -73,9 +88,10 @@ public class Guru implements Parcelable {
         this.mapel = in.readString();
         this.email = in.readString();
         this.kelas = in.readString();
+        this.jabatan = in.readString();
     }
 
-    public static final Parcelable.Creator<Guru> CREATOR = new Parcelable.Creator<Guru>() {
+    public static final Creator<Guru> CREATOR = new Creator<Guru>() {
         @Override
         public Guru createFromParcel(Parcel source) {
             return new Guru(source);
