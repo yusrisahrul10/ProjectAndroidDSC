@@ -45,11 +45,11 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         img = findViewById(R.id.imgKlik);
-<<<<<<< HEAD
+
          img.setOnClickListener(this);         
-=======
+
         img.setOnClickListener(this);
->>>>>>> master
+
         img = findViewById(R.id.img2);
         img.setOnClickListener(this);
 
@@ -68,13 +68,13 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-<<<<<<< HEAD
+
 //    @OnClick(R.id.imgKlik)
 //    public void detailGuru() {
-=======
+
 //    @OnClick(R.id.img1)
 //    public void detailGuru(){
->>>>>>> master
+
 //        startActivity(new Intent(this, DetailGuruActivity.class));
 //    }
 
@@ -124,10 +124,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View v) {
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> master
+
         switch (v.getId()) {
             case R.id.imgKlik:
 
@@ -151,12 +148,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(moveImage2);
                 break;
         }
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> Stashed changes
->>>>>>> master
+
     }
 }
 
