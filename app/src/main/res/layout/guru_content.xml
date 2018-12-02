@@ -7,22 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".activity.GuruActivity">
 
-
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".activity.GuruActivity"
         android:layout_marginTop="55dp">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:gravity="center_vertical|center"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
@@ -305,6 +300,7 @@
             </android.support.v7.widget.CardView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -325,19 +321,18 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/waa"
-                        android:layout_marginTop="15dp"
                         android:layout_width="80dp"
-                        app:civ_border_color="#f26f0b"
-                        app:civ_border_width="3dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/ayana" />
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ayana"
+                        app:civ_border_color="#f26f0b"
+                        app:civ_border_width="3dp" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:layout_margin="5dp"
-                        android:background="@color/colorAja"
-                        />
+                        android:background="@color/colorAja" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -349,6 +344,7 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="120dp"
@@ -362,19 +358,18 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/ww"
-                        android:layout_marginTop="15dp"
                         android:layout_width="80dp"
-                        app:civ_border_color="#f26f0b"
-                        app:civ_border_width="3dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/ayana" />
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ayana"
+                        app:civ_border_color="#f26f0b"
+                        app:civ_border_width="3dp" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:layout_margin="5dp"
-                        android:background="@color/colorAja"
-                        />
+                        android:background="@color/colorAja" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -386,6 +381,7 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="120dp"
@@ -399,19 +395,18 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/wa"
-                        android:layout_marginTop="15dp"
                         android:layout_width="80dp"
-                        app:civ_border_color="#f26f0b"
-                        app:civ_border_width="3dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/ayana" />
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ayana"
+                        app:civ_border_color="#f26f0b"
+                        app:civ_border_width="3dp" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:layout_margin="5dp"
-                        android:background="@color/colorAja"
-                        />
+                        android:background="@color/colorAja" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -427,4 +422,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>
