@@ -19,6 +19,7 @@
             android:background="#ff7043"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="Detail Guru"
+            app:theme="@style/ToolbarTheme"
             app:titleTextColor="@color/colorWhite" />
 
         <LinearLayout
