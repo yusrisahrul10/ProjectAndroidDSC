@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dscunikom.android.sma14bandung.R;
+import com.dscunikom.android.sma14bandung.model.Guru;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class DetailGuruActivity extends AppCompatActivity {

@@ -3,49 +3,47 @@ package com.dscunikom.android.sma14bandung.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Guru implements Parcelable {
-    private String id_img;
-    private String nama;
-    private String mapel;
+
+    @SerializedName("id_guru")
+    @Expose
+    private String idGuru;
+    @SerializedName("nama_guru")
+    @Expose
+    private String namaGuru;
+    @SerializedName("email")
+    @Expose
     private String email;
-    private String kelas;
+    @SerializedName("mapel")
+    @Expose
+    private String mapel;
+    @SerializedName("kelas_ajar")
+    @Expose
+    private String kelasAjar;
+    @SerializedName("jabatan")
+    @Expose
+    private String jabatan;
+    @SerializedName("image")
+    @Expose
+    private String image;
 
-    public String getJabatan() {
-        return jabatan;
+    public String getIdGuru() {
+        return idGuru;
     }
 
-    public void setJabatan(String jabatan) {
-        this.jabatan = jabatan;
+    public void setIdGuru(String idGuru) {
+        this.idGuru = idGuru;
     }
 
-    public static Creator<Guru> getCREATOR() {
-        return CREATOR;
+    public String getNamaGuru() {
+        return namaGuru;
     }
 
-    private  String jabatan;
-
-    public String getId_img() {
-        return id_img;
-    }
-
-    public void setId_img(String id_img) {
-        this.id_img = id_img;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    public String getMapel() {
-        return mapel;
-    }
-
-    public void setMapel(String mapel) {
-        this.mapel = mapel;
+    public void setNamaGuru(String namaGuru) {
+        this.namaGuru = namaGuru;
     }
 
     public String getEmail() {
@@ -56,16 +54,66 @@ public class Guru implements Parcelable {
         this.email = email;
     }
 
-    public String getKelas() {
-        return kelas;
+    public String getMapel() {
+        return mapel;
     }
 
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
+    public void setMapel(String mapel) {
+        this.mapel = mapel;
+    }
+
+    public String getKelasAjar() {
+        return kelasAjar;
+    }
+
+    public void setKelasAjar(String kelasAjar) {
+        this.kelasAjar = kelasAjar;
+    }
+
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public static Creator<Guru> getCREATOR() {
+        return CREATOR;
     }
 
     public Guru() {
     }
+
+    protected Guru(Parcel in) {
+        idGuru = in.readString();
+        namaGuru = in.readString();
+        email = in.readString();
+        mapel = in.readString();
+        kelasAjar = in.readString();
+        jabatan = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<Guru> CREATOR = new Creator<Guru>() {
+        @Override
+        public Guru createFromParcel(Parcel in) {
+            return new Guru(in);
+        }
+
+        @Override
+        public Guru[] newArray(int size) {
+            return new Guru[size];
+        }
+    };
 
     @Override
     public int describeContents() {
@@ -74,32 +122,12 @@ public class Guru implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.id_img);
-        dest.writeString(this.nama);
-        dest.writeString(this.mapel);
-        dest.writeString(this.email);
-        dest.writeString(this.kelas);
-        dest.writeString(this.jabatan);
+        dest.writeString(idGuru);
+        dest.writeString(namaGuru);
+        dest.writeString(email);
+        dest.writeString(mapel);
+        dest.writeString(kelasAjar);
+        dest.writeString(jabatan);
+        dest.writeString(image);
     }
-
-    protected Guru(Parcel in) {
-        this.id_img = in.readString();
-        this.nama = in.readString();
-        this.mapel = in.readString();
-        this.email = in.readString();
-        this.kelas = in.readString();
-        this.jabatan = in.readString();
-    }
-
-    public static final Creator<Guru> CREATOR = new Creator<Guru>() {
-        @Override
-        public Guru createFromParcel(Parcel source) {
-            return new Guru(source);
-        }
-
-        @Override
-        public Guru[] newArray(int size) {
-            return new Guru[size];
-        }
-    };
 }

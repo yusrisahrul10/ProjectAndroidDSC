@@ -26,5 +26,6 @@
         android:text="Star Platinum : The World!"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
 </RelativeLayout>
 
