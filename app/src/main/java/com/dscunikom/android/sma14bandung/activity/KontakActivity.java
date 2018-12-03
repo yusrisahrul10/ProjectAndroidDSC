@@ -88,7 +88,7 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.wa:
-                        String number = "+6282295103327";
+                        String number = "+6287822780277";
                         String url = "https://api.whatsapp.com/send?phone=" + number;
                         Intent whatsapp = new Intent(Intent.ACTION_VIEW);
                         whatsapp.setData(Uri.parse(url));
