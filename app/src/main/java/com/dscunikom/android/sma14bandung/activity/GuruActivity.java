@@ -50,7 +50,6 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
         img.setOnClickListener(this);
 
-        img = findViewById(R.id.img2);
         img.setOnClickListener(this);
 
     }
@@ -137,16 +136,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 //                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
                 startActivity(moveWithDataIntent);
                 break;
-            case R.id.img2:
 
-                Intent moveImage2 = new Intent(GuruActivity.this, DetailGuruActivity.class);
-                moveImage2.putExtra(DetailGuruActivity.EXTRA_NAME, "CUUUUU");
-                moveImage2.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Fisika");
-                moveImage2.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@jampang");
-                moveImage2.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 2");
-//                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
-                startActivity(moveImage2);
-                break;
         }
 
 
