@@ -11,10 +11,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sman_14_bandung">SMAN 14 BANDUNG</string>
-    <string name="web">www.saman14bandung.com</string>
-    <string name="instagram">sman14bandung</string>
+    <string name="web">www.sman14bandung.sch.id</string>
+    <string name="instagram">sman14bdg</string>
     <string name="fb">SMAN14BANDUNG</string>
-    <string name="telp">082295103327</string>
+    <string name="telp">(022)7202744</string>
     <string name="whatsapp">082295103327</string>
     <string name="default_picture_location">"@mipmap/tile"</string>
     <string name="todo">TODO</string>

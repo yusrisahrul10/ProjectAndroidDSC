@@ -47,7 +47,7 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
                 switch (v.getId()) {
 
                     case R.id.telp:
-                        String phonenumber = "082295103327";
+                        String phonenumber = "(022)7202744";
                         Intent dialnumber = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phonenumber));
                         startActivity(dialnumber);
                         break;
@@ -61,7 +61,7 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.web:
-                        Uri webpage = Uri.parse("http://www.android.com");
+                        Uri webpage = Uri.parse("http://sman14bandung.sch.id/html/index.php");
                         Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                         startActivity(webIntent);
                         break;
@@ -103,14 +103,14 @@ public class KontakActivity extends AppCompatActivity implements NavigationView.
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.ig:
-                        Uri ig = Uri.parse("http://instagram.cm/_u/fryantabif");
+                        Uri ig = Uri.parse("http://instagram.cm/_u/sman14bdg");
                         Intent likeIng = new Intent(Intent.ACTION_VIEW, ig);
                         likeIng.setPackage("com.instagram.android");
                         try {
                             startActivity(likeIng);
                         } catch (ActivityNotFoundException e) {
                             startActivity(new Intent(Intent.ACTION_VIEW,
-                                    Uri.parse("http://instagram.com/fryantabif")));
+                                    Uri.parse("http://instagram.com/sman14bdg")));
                         }
                         break;
                 }
