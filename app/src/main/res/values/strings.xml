@@ -48,5 +48,6 @@ Aenean sed leo vulputate, pulvinar nunc eget, tempor orci. Quisque neque ipsum, 
     <string name="detail_fasilitass">Detail Fasilitas</string>
     <string name="eskul">Ekstrakulikuler</string>
     <string name="ekstra">Detail Ekstrakulikuler</string>
+    <string name="third"><u>Dukungan Pihak Ketiga</u></string>
 
 </resources>

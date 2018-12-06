@@ -11,10 +11,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.dscunikom.android.sma14bandung.R;
 
-public class AboutActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import org.w3c.dom.Text;
+
+public class AboutActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +39,11 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
+        textView = (TextView) findViewById(R.id.tp);
+        textView.setOnClickListener(this);
+
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,8 +61,6 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
 
-
-
         int id = item.getItemId();
         item.setChecked(true);
 
@@ -64,7 +72,10 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
             ActivityCompat.finishAffinity(AboutActivity.this);
 
         } else if (id == R.id.nav_teacher) {
-
+            Intent intent = new Intent(this, GuruActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            ActivityCompat.finishAffinity(AboutActivity.this);
 
         } else if (id == R.id.nav_calendar) {
             Intent intent = new Intent(this, KalendarActivity.class);
@@ -84,9 +95,28 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tp:
+                /*
+                Intent untuk memulai activity baru
+                 */
+                Intent moveIntent = new Intent(AboutActivity.this, ThirdActivity.class);
+                startActivity(moveIntent);
+                break;
+        }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
 

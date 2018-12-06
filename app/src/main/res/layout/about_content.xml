@@ -41,6 +41,18 @@
                 android:text="Developer Student Clubs Chapter UNIKOM"
                 android:textSize="15dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:text="@string/third"
+                android:textSize="15dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </RelativeLayout>

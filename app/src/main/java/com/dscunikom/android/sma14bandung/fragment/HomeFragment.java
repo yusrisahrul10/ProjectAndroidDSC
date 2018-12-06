@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment {
     static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.asd,R.drawable.asd,R.drawable.asd};
+    int[] sampleImages = {R.drawable.asd1,R.drawable.asd,R.drawable.asd3};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -145,7 +145,6 @@ public class HomeFragment extends Fragment {
     }
     @OnClick(R.id.map)
     public void mapClick(){
-
 
         if(ActivityCompat.checkSelfPermission(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
