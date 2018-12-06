@@ -28,8 +28,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailBeritaActivity extends AppCompatActivity {
-SessionManager sessionManager;
-@BindView(R.id.txtJudul)
+    SessionManager sessionManager;
+    @BindView(R.id.txtJudul)
     TextView tvJudul;
     @BindView(R.id.txtIsiBerita)
     TextView tvIsiBerita;
@@ -66,7 +66,7 @@ SessionManager sessionManager;
             @Override
             public void onResponse(retrofit2.Call<GetBerita> call, Response<GetBerita> response) {
                 progressBar.setVisibility(View.GONE);
-               List<Berita> mList = response.body().getGetBerita();
+                List<Berita> mList = response.body().getGetBerita();
 //                Berita berita = new Berita();
                 tvIsiBerita.setText(mList.get(0).getIsi_berita());
                 tvJudul.setText(mList.get(0).getJudul_berita());

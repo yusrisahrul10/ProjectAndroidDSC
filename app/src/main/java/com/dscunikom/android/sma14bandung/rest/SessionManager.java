@@ -29,7 +29,7 @@ public class SessionManager {
     public  static  final String ID_EKSTRA ="id_estra";
     public  static  final String ID_FASILITAS ="id_fasilitas";
     public  static  final String ID_PRESTASI ="id_prestasi";
-
+    public static final String ID_GURU = "id_guru";
 
 
     public static final String LOGIN_TYPE = "login_type";
@@ -40,7 +40,7 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-//    public void createSession(String username , String role , String kecamatan , String kelurahan ){
+    //    public void createSession(String username , String role , String kecamatan , String kelurahan ){
 //        editor.putBoolean(IS_LOGIN,true);
 //        editor.putString(USERNAME,username);
 //        editor.putString(LOGIN_TYPE,role);
@@ -74,7 +74,10 @@ public class SessionManager {
         editor.putString(ID_PRESTASI,id_prestasi);
         editor.commit();
     }
-
+    public void createIdGuru(String id_guru) {
+        editor.putString(ID_GURU,id_guru);
+        editor.commit();
+    }
 //    public void checkLogin(){
 //        if(!this.is_login()){
 //            Intent i = new Intent(_context,MainActivity.class);
@@ -109,6 +112,7 @@ public class SessionManager {
         user.put(ID_EKSTRA,pref.getString(ID_EKSTRA,null));
         user.put(ID_FASILITAS,pref.getString(ID_FASILITAS,null));
         user.put(ID_PRESTASI,pref.getString(ID_PRESTASI,null));
+        user.put(ID_GURU, pref.getString(ID_GURU,null));
         return user;
 
     }
