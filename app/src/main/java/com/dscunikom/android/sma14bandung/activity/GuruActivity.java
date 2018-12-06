@@ -23,6 +23,8 @@ import com.dscunikom.android.sma14bandung.getModel.GetGuru;
 import com.dscunikom.android.sma14bandung.model.Guru;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.ItemClickSupport;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.List;
@@ -38,6 +40,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
     ImageView img;
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         rvCategory.setHasFixedSize(true);
         rvCategory.setLayoutManager(new GridLayoutManager(this, 3));
 
+        sessionManager = new SessionManager(GuruActivity.this.getApplicationContext());
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -60,10 +66,10 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-getGuru();
+        getGuru();
         img = findViewById(R.id.imgKlik);
 
-         img.setOnClickListener(this);         
+        img.setOnClickListener(this);
 
         img.setOnClickListener(this);
 
@@ -84,26 +90,23 @@ getGuru();
         }
     }
 
-
-//    @OnClick(R.id.imgKlik)
-//    public void detailGuru() {
-
-//    @OnClick(R.id.img1)
-//    public void detailGuru(){
-
-//        startActivity(new Intent(this, DetailGuruActivity.class));
-//    }
+    private void clickItemDetail(Guru guru) {
+        Intent intent = new Intent(GuruActivity.this, DetailGuruActivity.class);
+        startActivity(intent);
+    }
 
     private void getGuru(){
+        final AdapterGuru adapterGuru = new AdapterGuru(GuruActivity.this);
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetGuru> call = apiInterface.getGuru();
         call.enqueue(new Callback<GetGuru>() {
             @Override
             public void onResponse(Call<GetGuru> call, Response<GetGuru> response) {
                 List<Guru> listGuru = response.body().getResult();
-                AdapterGuru adapterGuru = new AdapterGuru(GuruActivity.this);
+                String id_guru = new Guru().getIdGuru();
+                sessionManager.createIdGuru(id_guru);
                 adapterGuru.setmListGuru(listGuru);
-                rvCategory.setAdapter(adapterGuru);
+                reloadView(adapterGuru, listGuru);
             }
 
             @Override
@@ -162,22 +165,35 @@ getGuru();
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-            case R.id.imgKlik:
+//        switch (v.getId()) {
+//            case R.id.imgKlik:
+//
+//                Intent moveWithDataIntent = new Intent(GuruActivity.this, DetailGuruActivity.class);
+//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_NAME, "DicodingAcademy Boy");
+//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Biologi");
+//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@surabaya");
+//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 8");
+//
+////                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
+//                startActivity(moveWithDataIntent);
+//                break;
+//
+//        }
 
-                Intent moveWithDataIntent = new Intent(GuruActivity.this, DetailGuruActivity.class);
-                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_NAME, "DicodingAcademy Boy");
-                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Biologi");
-                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@surabaya");
-                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 8");
 
-//                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
-                startActivity(moveWithDataIntent);
-                break;
+    }
 
-        }
-
-
+    public void reloadView(RecyclerView.Adapter adapter, final List<Guru> list) {
+        rvCategory.setAdapter(adapter);
+        ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Guru listGuru = list.get(position);
+                String id_guru = listGuru.getIdGuru();
+                sessionManager.createIdGuru(id_guru);
+                clickItemDetail(list.get(position));
+            }
+        });
     }
 }
 
