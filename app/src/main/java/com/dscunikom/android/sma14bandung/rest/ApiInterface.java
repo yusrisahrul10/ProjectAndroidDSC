@@ -10,6 +10,7 @@ import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.model.Acara;
 import com.dscunikom.android.sma14bandung.model.Ekstrakulikuler;
+import com.dscunikom.android.sma14bandung.model.Guru;
 import com.dscunikom.android.sma14bandung.model.Prestasi;
 import com.dscunikom.android.sma14bandung.getModel.GetGambarFasilitas;
 
@@ -39,7 +40,7 @@ public interface ApiInterface {
 
     @GET("ekstrakulikuler")
     Call<GetEkstra> getEkstra();
-    
+
     @GET("ekstrakulikuler")
     Call<Ekstrakulikuler>getDetailEkstra(@Query("id_ekstra")String id_ekstra);
 
@@ -64,4 +65,6 @@ public interface ApiInterface {
     @GET("profil_guru")
     Call<GetGuru> getGuru();
 
+    @GET("profil_guru")
+    Call<Guru> getDetailGuru(@Query("id_guru") String id_guru);
 }
