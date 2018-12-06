@@ -20,12 +20,12 @@
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textStyle="bold|italic"
         android:layout_marginTop="70dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
-        android:text="de.hdodenhof:circleimageview:2.1.0"/>
+        android:text="https://github.com/hdodenhof/CircleImageView"/>
     <TextView
         android:id="@+id/t2"
         android:layout_below="@+id/t1"
@@ -36,25 +36,25 @@
         android:textStyle="bold|italic"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
-        android:text="com.squareup.picasso:picasso:2.5.2"/>
+        android:text="https://github.com/square/picasso"/>
     <TextView
         android:id="@+id/t3"
         android:layout_below="@+id/t2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:layout_marginTop="10dp"
         android:textStyle="bold|italic"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
-        android:text="com.squareup.okhttp:okhttp:2.6.0"/>
+        android:text="https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp/2.6.0"/>
     <TextView
         android:id="@+id/t4"
         android:layout_below="@+id/t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textStyle="bold|italic"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
@@ -65,21 +65,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textStyle="bold|italic"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
-        android:text="com.squareup.retrofit2:retrofit:2.4.0"/>
+        android:text="https://github.com/square/retrofit"/>
     <TextView
         android:id="@+id/t6"
         android:layout_below="@+id/t5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textStyle="bold|italic"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="20dp"
-        android:text="com.jakewharton:butterknife-compiler:8.8.1"/>
+        android:text="https://github.com/JakeWharton/butterknife"/>
 
 </RelativeLayout>
