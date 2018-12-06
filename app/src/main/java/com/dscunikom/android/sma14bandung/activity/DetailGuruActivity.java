@@ -33,24 +33,24 @@ public class DetailGuruActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        textView1 = (TextView) findViewById(R.id.tvName);
-        textView2 = (TextView) findViewById(R.id.kelas);
-        textView3 = (TextView) findViewById(R.id.mapelajaran);
-        textView4 = (TextView) findViewById(R.id.emaill);
-
-        String name = getIntent().getStringExtra(EXTRA_NAME);
-        String mapel = getIntent().getStringExtra(EXTRA_MAPEL);
-        String email = getIntent().getStringExtra(EXTRA_EMAIL);
-        String kelas = getIntent().getStringExtra(EXTRA_KELAS);
-
-        String text = name;
-        textView1.setText(text);
-        String mapell = mapel;
-        textView2.setText(mapell);
-        String emaill = email;
-        textView3.setText(emaill);
-        String kelass = kelas;
-        textView4.setText(kelass);
+//        textView1 = (TextView) findViewById(R.id.tvName);
+//        textView2 = (TextView) findViewById(R.id.kelas);
+//        textView3 = (TextView) findViewById(R.id.mapelajaran);
+//        textView4 = (TextView) findViewById(R.id.emaill);
+//
+//        String name = getIntent().getStringExtra(EXTRA_NAME);
+//        String mapel = getIntent().getStringExtra(EXTRA_MAPEL);
+//        String email = getIntent().getStringExtra(EXTRA_EMAIL);
+//        String kelas = getIntent().getStringExtra(EXTRA_KELAS);
+//
+//        String text = name;
+//        textView1.setText(text);
+//        String mapell = mapel;
+//        textView2.setText(mapell);
+//        String emaill = email;
+//        textView3.setText(emaill);
+//        String kelass = kelas;
+//        textView4.setText(kelass);
 
 
 
