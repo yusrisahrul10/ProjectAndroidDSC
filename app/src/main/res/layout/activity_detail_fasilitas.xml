@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailFasilitasActivity">
+    android:layout_height="wrap_content"
+    tools:context=".activity.DetailFasilitasActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logobandung"
-            android:id="@+id/img_content_detail_first">
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
 
-        </ImageView>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar6"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#ff7043"
+            app:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/detail_fasilitass"
+            app:titleTextColor="@color/colorWhite" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_detail_content"
-            android:layout_width="wrap_content"
+            android:id="@+id/rv_detail_fasilitas"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/img_content_detail_first"
-            tools:listitem="@layout/item_grid_detail_fasilitas_ekskul"
-            android:nestedScrollingEnabled="false">
+            android:layout_below="@+id/toolbar6"
+            tools:listitem="@layout/item_grid_detail_fasilitas_ekskul">
+
 
         </android.support.v7.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/progressbaredetailfasilitas"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="300dp" />
+
     </RelativeLayout>
 
-</ScrollView>
+</RelativeLayout>

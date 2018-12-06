@@ -26,6 +26,9 @@ public class SessionManager {
     public static final String ID_PENGADUAN = "id_pengaduan";
     public static final String ID_BERITA = "id_berita";
     public static final String ID_ACARA = "id_acara";
+    public  static  final String ID_EKSTRA ="id_estra";
+    public  static  final String ID_FASILITAS ="id_fasilitas";
+    public  static  final String ID_PRESTASI ="id_prestasi";
 
 
 
@@ -57,6 +60,18 @@ public class SessionManager {
     }
     public void createIdAcara(String id_acara){
         editor.putString(ID_ACARA,id_acara);
+        editor.commit();
+    }
+    public void createIdEkstra(String id_ekstra){
+        editor.putString(ID_EKSTRA,id_ekstra);
+        editor.commit();
+    }
+    public void createdIdFasilitas(String id_fasilitas){
+        editor.putString(ID_FASILITAS,id_fasilitas);
+        editor.commit();
+    }
+    public void createdIdPrestasi(String id_prestasi){
+        editor.putString(ID_PRESTASI,id_prestasi);
         editor.commit();
     }
 
@@ -91,6 +106,9 @@ public class SessionManager {
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(ID_BERITA,pref.getString(ID_BERITA,null));
         user.put(ID_ACARA,pref.getString(ID_ACARA,null));
+        user.put(ID_EKSTRA,pref.getString(ID_EKSTRA,null));
+        user.put(ID_FASILITAS,pref.getString(ID_FASILITAS,null));
+        user.put(ID_PRESTASI,pref.getString(ID_PRESTASI,null));
         return user;
 
     }

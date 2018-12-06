@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMA 14 Bandung</string>
+    <string name="app_name">SMAN 14 Bandung</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,11 +11,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sman_14_bandung">SMAN 14 BANDUNG</string>
-    <string name="web">www.saman14bandung.com</string>
-    <string name="instagram">sman14bandung</string>
+    <string name="web">www.sman14bandung.sch.id</string>
+    <string name="instagram">sman14bdg</string>
     <string name="fb">SMAN14BANDUNG</string>
-    <string name="telp">082295103327</string>
-    <string name="whatsapp">082295103327</string>
+    <string name="telp">(022)7202744</string>
+    <string name="whatsapp">087822780277</string>
     <string name="default_picture_location">"@mipmap/tile"</string>
     <string name="todo">TODO</string>
     <string name="Open">Kalender</string>
@@ -36,5 +36,18 @@ Etiam ac convallis nisl. Curabitur eu commodo metus. Duis ultricies ut dui sed g
 \n\n\n\n
 Aenean sed leo vulputate, pulvinar nunc eget, tempor orci. Quisque neque ipsum, congue et arcu non, vehicula pretium metus. Ut odio sem, porta sit amet mollis eu, egestas nec velit. Praesent facilisis tortor nisi, a lobortis odio gravida at. Duis vel accumsan diam. Morbi elit eros, fringilla id commodo sed, rutrum non nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam at facilisis ante, vitae mattis augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer congue tortor nisl, a vulputate augue tempus eu.
     </string>
+    <string name="title_activity_guru_drawer">GuruDrawerActivity</string>
+    <string name="kepala_sekolah">Kepala Sekolah</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="detil_berita">Detail Berita</string>
+    <string name="detil_acara">Detail Acara</string>
+    <string name="detil_prestasi">Detail Prestasi</string>
+    <string name="detil_profile">Profile Sekolah</string>
+    <string name="detil_fasilitas">Fasilitas</string>
+    <string name="fasilitas">Fasilitas</string>
+    <string name="detail_fasilitass">Detail Fasilitas</string>
+    <string name="eskul">Ekstrakulikuler</string>
+    <string name="ekstra">Detail Ekstrakulikuler</string>
+    <string name="third"><u>Dukungan Pihak Ketiga</u></string>
 
 </resources>

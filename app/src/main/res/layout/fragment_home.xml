@@ -15,7 +15,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/default_circle_indicator_page_color">
+            android:background="@color/default_circle_indicator_page_color"
+            android:clipToPadding="false">
 
             <com.synnapps.carouselview.CarouselView
                 android:id="@+id/carouselView"
@@ -39,7 +40,7 @@
                     android:id="@+id/tv_tentang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginTop="10dp"
                     android:text="Tentang" />
 
@@ -47,28 +48,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_tentang"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:padding="1dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/btn_visi_misi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:id="@+id/btn_visi_misi">
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="#f4f4f4"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="8dp"
+                        android:elevation="8dp"
+
+                        >
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="16dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/icon_visi_misi" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Visi dan Misi"
                                 android:textAlignment="center"
@@ -79,19 +92,27 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/btn_fasilitas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:id="@+id/btn_fasilitas">
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="8dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="16dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
                                 app:srcCompat="@drawable/icon_fasilitas" />
 
                             <TextView
@@ -106,19 +127,27 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/btn_ekskul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:id="@+id/btn_ekskul">
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="4dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="8dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="16dp"
+
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
                                 app:srcCompat="@drawable/icon_ekskul" />
 
                             <TextView
@@ -158,7 +187,7 @@
                     android:id="@+id/tv_prestasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginTop="10dp"
                     android:text="Prestasi" />
 
@@ -171,8 +200,7 @@
                         android:id="@+id/rv_prestasi_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="6dp"
-                        >
+                        android:padding="6dp">
 
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
@@ -184,12 +212,11 @@
                 android:layout_below="@id/ll_prestasi"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:id="@+id/tv_lokasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginTop="10dp"
                     android:text="Lokasi" />
 
@@ -197,28 +224,25 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="196dp"
-
+                    android:id="@+id/map"
                     android:padding="5dp"
                     app:srcCompat="@drawable/map" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:layout_weight="1"
                     android:text="Jl. Yudhawastu Pramuka IV.Cicadas, Cibeunying Kidul, Kota Bandung, Jawa Barat 40121"
                     android:textColor="@android:color/black" />
 
             </LinearLayout>
 
-
         </RelativeLayout>
 
     </ScrollView>
-
-
 
 </FrameLayout>

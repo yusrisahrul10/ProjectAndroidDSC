@@ -4,8 +4,14 @@ import com.dscunikom.android.sma14bandung.getModel.GetAcara;
 import com.dscunikom.android.sma14bandung.getModel.GetBerita;
 import com.dscunikom.android.sma14bandung.getModel.GetEkstra;
 import com.dscunikom.android.sma14bandung.getModel.GetFasilitas;
+import com.dscunikom.android.sma14bandung.getModel.GetGuru;
+import com.dscunikom.android.sma14bandung.getModel.GetKalender;
+import com.dscunikom.android.sma14bandung.getModel.GetPrestasi;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.model.Acara;
+import com.dscunikom.android.sma14bandung.model.Ekstrakulikuler;
+import com.dscunikom.android.sma14bandung.model.Prestasi;
+import com.dscunikom.android.sma14bandung.getModel.GetGambarFasilitas;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -27,12 +33,35 @@ public interface ApiInterface {
     @GET("fasilitas")
     Call<GetFasilitas> getFasilitas();
 
+    @GET("fasilitas/get_gambar")
+    Call<GetGambarFasilitas>getDetailFasilitas(@Query("id_fasilitas")String id_fasilitas);
+
+
     @GET("ekstrakulikuler")
     Call<GetEkstra> getEkstra();
+    
+    @GET("ekstrakulikuler")
+    Call<Ekstrakulikuler>getDetailEkstra(@Query("id_ekstra")String id_ekstra);
 
     @GET("acara")
     Call<GetAcara> getAcara();
 
     @GET("acara")
     Call<Acara> getDetailAcara(@Query("id_acara") String id_acara);
+
+    @GET("prestasi")
+    Call<GetPrestasi> getPrestasi();
+
+    @GET("prestasi/limit")
+    Call<GetPrestasi> getPrestasiLimit();
+
+    @GET("kalender/akademik")
+    Call<GetKalender> getKalender();
+
+    @GET("prestasi")
+    Call<Prestasi> getDetailPrestasi(@Query("id_prestasi") String id_prestasi);
+
+    @GET("profil_guru")
+    Call<GetGuru> getGuru();
+
 }

@@ -7,7 +7,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="250dp">
 
         <ImageView
             android:id="@+id/image_item_photo"
@@ -16,18 +16,22 @@
             android:scaleType="centerCrop"
             android:layout_margin="1dp"
             tools:src="@drawable/animasi" />
-
         <TextView
             android:id="@+id/text_item_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="30dip"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="213dp"
+            android:padding="8dp"
             android:background="#AA000000"
             android:paddingLeft="10dp"
             tools:text="Juara Lomba Roket"
             android:textColor="#ffffffff"
             android:textSize="18sp" />
     </FrameLayout>
+
 
 </LinearLayout>

@@ -12,28 +12,29 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.model.Berita;
+import com.dscunikom.android.sma14bandung.model.Prestasi;
 
 import java.util.List;
 
 public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHome.MyViewHolder> {
 
-    public List<Berita> mListBerita;
+    public List<Prestasi> mlistPrestasi;
     Context context;
 
     public AdapterPrestasiHome(Context context) {
         this.context = context;
     }
 
-    public AdapterPrestasiHome(List<Berita> mListBerita) {
-        this.mListBerita = mListBerita;
+    public AdapterPrestasiHome(List<Prestasi> mlistPrestasi) {
+        this.mlistPrestasi = mlistPrestasi;
     }
 
-    public List<Berita> getmListBerita() {
-        return mListBerita;
+    public List<Prestasi> getmListPrestasi() {
+        return mlistPrestasi;
     }
 
-    public void setmListBerita(List<Berita> mListBerita) {
-        this.mListBerita = mListBerita;
+    public void setMlistPrestasi(List<Prestasi> mlistPrestasi) {
+        this.mlistPrestasi = mlistPrestasi;
     }
 
     @NonNull
@@ -52,26 +53,30 @@ public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHom
 //                .load("http://192.168.0.106/projectdsc/uploads/berita/"+p.getImage())
 //                .into(holder.imgPrestasi);
 
-        final Berita p = getmListBerita().get(position);
+        final Prestasi p = getmListPrestasi().get(position);
+
+        holder.txtJudul.setText(p.getNamaPrestasi().substring(0,8)+"...");
 
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+p.getImage())
+                .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/"+p.getImage())
                 .into(holder.imgContent);
 
     }
 
     @Override
     public int getItemCount() {
-        return mListBerita.size();
+        return mlistPrestasi.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgContent;
-
+        TextView txtJudul;
         public MyViewHolder(View itemView) {
             super(itemView);
             imgContent = itemView.findViewById(R.id.image_prestasi);
+            txtJudul = itemView.findViewById(R.id.txtJudulPrestasi);
+
 
         }
     }

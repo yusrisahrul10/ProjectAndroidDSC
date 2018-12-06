@@ -6,20 +6,26 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/outline_home_24"
             android:title="Beranda" />
         <item
             android:id="@+id/nav_teacher"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/outline_person_24"
             android:title="Profil Guru" />
         <item
             android:id="@+id/nav_calendar"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/calender"
             android:title="Kalender Akademik" />
         <item
             android:id="@+id/nav_contact"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/baseline_contacts_24"
             android:title="Kontak" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="About" />
     </group>
 
+
 </menu>
+

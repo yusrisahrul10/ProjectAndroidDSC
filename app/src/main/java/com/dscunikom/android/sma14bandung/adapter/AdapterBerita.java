@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.model.Berita;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.CardViewViewHolder> {
@@ -52,8 +55,21 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.CardViewVi
                 .into(holder.imgContent);
 
 
-        holder.tvDate.setText(p.getTanggal());
+//        holder.tvDate.setText(p.getTanggal());
         holder.tvTitle.setText(p.getJudul_berita());
+        holder.tvIsiBerita.setText(p.getIsi_berita());
+
+        String getDate = getmListBerita().get(position).getTanggal();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse(getDate);
+            SimpleDateFormat newFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+            String dateFix = newFormat.format(date);
+            holder.tvDate.setText(dateFix);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 //            holder.tvTitle.setText(mListBerita.get(position).getJudul_berita());
 //            holder.tvDate.setText(mListBerita.get(position).getTanggal());
 //        Glide.with(context)
@@ -68,12 +84,14 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.CardViewVi
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgContent;
-        TextView tvTitle, tvDate;
+        TextView tvTitle, tvDate,tvIsiBerita;
         public CardViewViewHolder(View itemView) {
             super(itemView);
             imgContent = itemView.findViewById(R.id.img_content);
             tvTitle = itemView.findViewById(R.id.tv_title_content);
             tvDate = itemView.findViewById(R.id.tv_date_content);
+            tvIsiBerita = itemView.findViewById(R.id.tv_deskripsi);
+
         }
     }
 }

@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.model.Acara;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewViewHolder> {
@@ -40,8 +43,21 @@ public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewView
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAcara.CardViewViewHolder holder, int position) {
-            holder.tvTitle.setText(getmListAcara().get(position).getNamaAcara());
-        holder.tvDate.setText(getmListAcara().get(position).getTanggal());
+        holder.tvTitle.setText(getmListAcara().get(position).getNamaAcara());
+//        holder.tvDate.setText(getmListAcara().get(position).getTanggal());
+        holder.tvIsiBerita.setText(getmListAcara().get(position).getKeterangan());
+
+        String getDate = getmListAcara().get(position).getTanggal();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse(getDate);
+            SimpleDateFormat newFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+            String dateFix = newFormat.format(date);
+            holder.tvDate.setText(dateFix);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         Glide.with(context)
                 .load("http://projectdsc.ahdirdiysarm.com/uploads/acara/"+getmListAcara().get(position).getImage())
@@ -55,12 +71,14 @@ public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewView
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgContent;
-        TextView tvTitle, tvDate;
+        TextView tvTitle, tvDate,tvIsiBerita;
         public CardViewViewHolder(View itemView) {
             super(itemView);
             imgContent = itemView.findViewById(R.id.img_content);
             tvTitle = itemView.findViewById(R.id.tv_title_content);
             tvDate = itemView.findViewById(R.id.tv_date_content);
+            tvIsiBerita = itemView.findViewById(R.id.tv_deskripsi);
+
         }
     }
 }
