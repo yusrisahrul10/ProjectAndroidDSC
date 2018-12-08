@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.model.President;
 import com.dscunikom.android.sma14bandung.model.Prestasi;
@@ -59,9 +60,13 @@ public class AdapterPrestasi extends RecyclerView.Adapter<AdapterPrestasi.ListVi
         final Prestasi p = getmListPrestasi().get(position);
 
 
-
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.placeholder);
+        requestOptions.error(R.drawable.placeholder);
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/"+getmListPrestasi().get(position).getImage())
+                .asBitmap()
+                .load("http://sman14bdg.dscunikom.com/uploads/prestasi/"+getmListPrestasi().get(position).getImage())
+
                 .into(holder.imgPrestasi);
         holder.tvPrestasi.setText(p.getNamaPrestasi());
     }

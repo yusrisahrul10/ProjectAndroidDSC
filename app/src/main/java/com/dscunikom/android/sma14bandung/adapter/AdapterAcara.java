@@ -44,7 +44,6 @@ public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewView
     @Override
     public void onBindViewHolder(@NonNull AdapterAcara.CardViewViewHolder holder, int position) {
         holder.tvTitle.setText(getmListAcara().get(position).getNamaAcara());
-//        holder.tvDate.setText(getmListAcara().get(position).getTanggal());
         holder.tvIsiBerita.setText(getmListAcara().get(position).getKeterangan());
 
         String getDate = getmListAcara().get(position).getTanggal();
@@ -60,7 +59,7 @@ public class AdapterAcara extends RecyclerView.Adapter<AdapterAcara.CardViewView
 
 
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/acara/"+getmListAcara().get(position).getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/acara/"+getmListAcara().get(position).getImage())
                 .into(holder.imgContent);
     }
 

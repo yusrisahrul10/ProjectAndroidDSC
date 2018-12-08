@@ -98,7 +98,10 @@ public class FasilitasActivity extends AppCompatActivity {
 
     private void clickItemDetail(Fasilitas fasilitas){
         Intent detailActivity = new Intent(this, DetailFasilitasActivity.class);
+        detailActivity.putExtra("id_fasilitas",fasilitas.getIdFasilitas());
         startActivity(detailActivity);
+        this.overridePendingTransition(0, 0);
+
     }
 
     public void reloadView(RecyclerView.Adapter adapter, final List<Fasilitas> list ){
@@ -108,7 +111,7 @@ public class FasilitasActivity extends AppCompatActivity {
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
                 Fasilitas listFasilitas = list.get(position);
                 String id_fasilitas = listFasilitas.getIdFasilitas();
-                sessionManager.createdIdFasilitas(id_fasilitas);
+//                sessionManager.createdIdFasilitas(id_fasilitas);
                 clickItemDetail(list.get(position));
             }
         });

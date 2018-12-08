@@ -94,9 +94,6 @@ public class EventsFragment extends Fragment {
     private void getData(){
         final AdapterAcara adapterAcara = new AdapterAcara(this.getActivity());
         sessionManager = new SessionManager(getActivity().getApplicationContext());
-//        CardViewNewsEventAdapter cardViewNewsEventAdapter = new CardViewNewsEventAdapter(this.getActivity());
-//        cardViewNewsEventAdapter.setListPresident(list);
-//        recyclerView.setAdapter(cardViewNewsEventAdapter);
 
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetAcara> call = apiInterface.getAcara();
@@ -123,7 +120,7 @@ public class EventsFragment extends Fragment {
 
     private void clickItemDetail(Acara acara){
         Intent detailActivity = new Intent(getActivity(), DetailAcaraActivity.class);
-
+        detailActivity.putExtra("id_acara",acara.getIdAcara());
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }
@@ -135,7 +132,7 @@ public class EventsFragment extends Fragment {
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Acara mList = acara.get(position);
                 String id_acara = mList.getIdAcara();
-                sessionManager.createIdAcara(id_acara);
+//                sessionManager.createIdAcara(id_acara);
                 clickItemDetail(acara.get(position));
             }
         });

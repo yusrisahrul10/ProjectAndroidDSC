@@ -103,7 +103,6 @@ public class AwardsFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 List<Prestasi> listPrestasi = response.body().getResult();
                 adapterPrestasi.setmListPrestasi(listPrestasi);
-//                rvCategory.setAdapter(adapterPrestasi);
                 reloadView(adapterPrestasi,listPrestasi);
 
             }
@@ -117,6 +116,7 @@ public class AwardsFragment extends Fragment {
 
     private void clickItemDetail(Prestasi prestasi){
         Intent detailActivity = new Intent(getActivity(), DetailPrestasiActivity.class);
+        detailActivity.putExtra("id_prestasi" , prestasi.getIdPrestasi());
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }
@@ -129,7 +129,7 @@ public class AwardsFragment extends Fragment {
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
                 Prestasi listPrestasi = list.get(position);
                 String id_prestasi = listPrestasi.getIdPrestasi();
-                sessionManager.createdIdPrestasi(id_prestasi);
+//                sessionManager.createdIdPrestasi(id_prestasi);
                 clickItemDetail(list.get(position));
             }
         });

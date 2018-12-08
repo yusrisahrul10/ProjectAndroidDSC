@@ -47,7 +47,7 @@ public class AdapterEkskul extends RecyclerView.Adapter<AdapterEkskul.GridViewHo
         holder.tvTitle.setText(getmListEkstra().get(position).getNamaEkstra());
 
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/ekstrakulikuler/"+getmListEkstra().get(position).getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/ekstrakulikuler/"+getmListEkstra().get(position).getImage())
                 .into(holder.imgPhoto);
     }
 

@@ -88,6 +88,7 @@ public class NewsFragment extends Fragment {
     }
     private void clickItemDetail(Berita berita){
         Intent detailActivity = new Intent(getActivity(), DetailBeritaActivity.class);
+        detailActivity.putExtra("id_berita",berita.getId_berita());
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }

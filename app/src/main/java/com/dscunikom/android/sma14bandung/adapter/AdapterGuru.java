@@ -42,7 +42,7 @@ public class AdapterGuru extends RecyclerView.Adapter<AdapterGuru.GridViewHolder
     public void onBindViewHolder(@NonNull AdapterGuru.GridViewHolder holder, int position) {
         holder.txtNamaGuru.setText(getmListGuru().get(position).getNamaGuru());
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/guru/"+getmListGuru().get(position).getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/guru/"+getmListGuru().get(position).getImage())
                 .into(holder.imgGuru);
     }
 

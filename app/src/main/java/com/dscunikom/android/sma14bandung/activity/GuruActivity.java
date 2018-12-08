@@ -12,11 +12,15 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.dscunikom.android.sma14bandung.R;
 import com.dscunikom.android.sma14bandung.adapter.AdapterGuru;
 import com.dscunikom.android.sma14bandung.getModel.GetGuru;
@@ -35,12 +39,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GuruActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class GuruActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     RecyclerView rvCategory;
-
     ImageView img;
+    TextView tvkepsek;
 
     SessionManager sessionManager;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         rvCategory.setLayoutManager(new GridLayoutManager(this, 3));
 
         sessionManager = new SessionManager(GuruActivity.this.getApplicationContext());
+        progressBar = findViewById(R.id.progressbarguru);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,13 +73,12 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         getGuru();
+
         img = findViewById(R.id.imgKlik);
+        tvkepsek = findViewById(R.id.kepsek);
 
-        img.setOnClickListener(this);
 
-        img.setOnClickListener(this);
-
-        img.setOnClickListener(this);
+        getKepalaSekolah();
 
     }
 
@@ -92,7 +97,10 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
 
     private void clickItemDetail(Guru guru) {
         Intent intent = new Intent(GuruActivity.this, DetailGuruActivity.class);
+        intent.putExtra("id_guru",guru.getIdGuru());
         startActivity(intent);
+        this.overridePendingTransition(0, 0);
+
     }
 
     private void getGuru(){
@@ -102,9 +110,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         call.enqueue(new Callback<GetGuru>() {
             @Override
             public void onResponse(Call<GetGuru> call, Response<GetGuru> response) {
+                progressBar.setVisibility(View.GONE);
                 List<Guru> listGuru = response.body().getResult();
-                String id_guru = new Guru().getIdGuru();
-                sessionManager.createIdGuru(id_guru);
                 adapterGuru.setmListGuru(listGuru);
                 reloadView(adapterGuru, listGuru);
             }
@@ -115,6 +122,37 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+    }
+    private void getKepalaSekolah(){
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<Guru> call = apiInterface.getKepalaSekolah();
+        call.enqueue(new Callback<Guru>() {
+            @Override
+            public void onResponse(Call<Guru> call, final Response<Guru> response) {
+                assert response.body() != null;
+                String namaKepsek = response.body().getNamaGuru();
+                String id_guru = response.body().getIdGuru();
+                sessionManager.createIdGuru(id_guru);
+                Glide.with(GuruActivity.this)
+                        .load("http://sman14bdg.dscunikom.com/uploads/guru/".concat(response.body().getImage()))
+                        .into(img);
+                tvkepsek.setText(namaKepsek);
+
+                img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(GuruActivity.this, DetailGuruActivity.class);
+                        intent.putExtra("id_guru",response.body().getIdGuru());
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<Guru> call, Throwable t) {
+
+            }
+        });
     }
 
 
@@ -162,26 +200,7 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    public void onClick(View v) {
 
-//        switch (v.getId()) {
-//            case R.id.imgKlik:
-//
-//                Intent moveWithDataIntent = new Intent(GuruActivity.this, DetailGuruActivity.class);
-//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_NAME, "DicodingAcademy Boy");
-//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_MAPEL, "Biologi");
-//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_EMAIL, "ary@surabaya");
-//                moveWithDataIntent.putExtra(DetailGuruActivity.EXTRA_KELAS, "12 IPA 8");
-//
-////                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
-//                startActivity(moveWithDataIntent);
-//                break;
-//
-//        }
-
-
-    }
 
     public void reloadView(RecyclerView.Adapter adapter, final List<Guru> list) {
         rvCategory.setAdapter(adapter);

@@ -44,7 +44,7 @@ public class DetailPrestasiActivity extends AppCompatActivity {
     ImageView imgDetail;
 
     ProgressBar progressBar;
-
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class DetailPrestasiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_prestasi);
 
         progressBar = findViewById(R.id.progressbarprestasi);
+        id = getIntent().getStringExtra("id_prestasi");
 
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
@@ -65,8 +66,8 @@ public class DetailPrestasiActivity extends AppCompatActivity {
     private void getData(){
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
-        HashMap<String,String> user = sessionManager.getUserDetils();
-        String id = user.get(SessionManager.ID_PRESTASI);
+//        HashMap<String,String> user = sessionManager.getUserDetils();
+//        String id = user.get(SessionManager.ID_PRESTASI);
         Call<Prestasi> call = apiInterface.getDetailPrestasi(id);
 
         call.enqueue(new Callback<Prestasi>() {
@@ -92,7 +93,7 @@ public class DetailPrestasiActivity extends AppCompatActivity {
 
 //                tvTanggal.setText(response.body().getTanggal());
                 Glide.with(DetailPrestasiActivity.this)
-                        .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/".concat(response.body().getImage()))
+                        .load("http://sman14bdg.dscunikom.com/uploads/prestasi/".concat(response.body().getImage()))
                         .into(imgDetail);
 
                 Log.e("Nama Prestasi ","OnRespone "+String.valueOf(response.body().getNamaPrestasi()));

@@ -38,8 +38,6 @@ import retrofit2.Response;
 public class KalendarActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     WebView webView;
     RecyclerView rvJanuary,rvFebuary,rvMaret,rvApril,rvMei,rvJuni,rvJuli,rvAgustus,rvSeptember,rvOktober,rvNopember,rvDesember;
-    TextView tv_kalender_bulan;
-    String URL = "http://projectdsc.ahdirdiysarm.com/uploads/kalender/f83ff9c15f76a8c470e4831503156d44.pdf";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,8 +116,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getMaret();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
 
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
@@ -163,8 +159,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getMei();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
 
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
@@ -185,9 +179,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getJuni();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvJuni.setAdapter(adapterJanuary);
@@ -207,9 +198,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getJuli();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvJuli.setAdapter(adapterJanuary);
@@ -229,9 +217,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getAgustus();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvAgustus.setAdapter(adapterJanuary);
@@ -251,9 +236,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getSeptember();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvSeptember.setAdapter(adapterJanuary);
@@ -272,9 +254,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getOktober();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvOktober.setAdapter(adapterJanuary);
@@ -293,9 +272,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getNovember();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvNopember.setAdapter(adapterJanuary);
@@ -316,9 +292,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getDesember();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvDesember.setAdapter(adapterJanuary);
@@ -338,9 +311,6 @@ public class KalendarActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onResponse(Call<GetKalender> call, Response<GetKalender> response) {
                 List<Kalender> mList = response.body().getFebuary();
-//                Kalender kalender = new Kalender();
-//                tv_kalender_bulan.setText(kalender.getNamaBulan());
-
                 AdapterJanuary adapterJanuary = new AdapterJanuary(KalendarActivity.this);
                 adapterJanuary.setmListKalender(mList);
                 rvFebuary.setAdapter(adapterJanuary);

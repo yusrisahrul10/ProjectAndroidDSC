@@ -23,6 +23,7 @@ import com.dscunikom.android.sma14bandung.activity.MainActivity;
 import com.dscunikom.android.sma14bandung.getModel.GetResponse;
 import com.dscunikom.android.sma14bandung.rest.Api;
 import com.dscunikom.android.sma14bandung.rest.ApiInterface;
+import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Callback;
@@ -30,12 +31,12 @@ import retrofit2.Response;
 
 public class PreloadActivity extends AppCompatActivity {
     private String ANDROID_ID;
-
+    SessionManager sessionManager;
+    private boolean mStarted = false;
     static final int REQUEST_LOCATION = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preload);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
 
         if(ActivityCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -45,26 +46,38 @@ public class PreloadActivity extends AppCompatActivity {
 
 
         ANDROID_ID = Settings.Secure.getString(this.getApplication().getContentResolver(),Settings.Secure.ANDROID_ID);
-
-//        if(!isConnected(PreloadActivity.this)) buildDialog(PreloadActivity.this).show();
-//        else {
-//            Toast.makeText(PreloadActivity.this,"Welcome", Toast.LENGTH_SHORT).show();
-//            setContentView(R.layout.activity_preload);
-
-
+        sessionManager = new SessionManager(getApplicationContext());
+        if(!isConnected(PreloadActivity.this)) buildDialog(PreloadActivity.this).show();
+        else {
+            Toast.makeText(PreloadActivity.this,"Welcome", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_preload);
+            sessionManager = new SessionManager(getApplicationContext());
+//          sessionManager.getUser();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
-        postID();
-        Intent intent = new Intent(PreloadActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+                    sessionManager.checkLogin();
+                    postID();
+                    finish();
                 }
-            }, 5000);
+            }, 2000);
         }
-//    }
+        }
+    @Override
+    protected void onStart() {
+        // the activity becomes at least partially visible
+        mStarted = true;
+
+        super.onStart();
+    }
+    @Override
+    protected void onStop() {
+        // the activity is no longer visible
+        mStarted = false;
+
+        super.onStop();
+    }
 
 
 

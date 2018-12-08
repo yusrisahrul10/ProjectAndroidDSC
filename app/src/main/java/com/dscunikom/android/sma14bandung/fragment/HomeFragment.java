@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -74,7 +75,7 @@ public class HomeFragment extends Fragment {
     static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.asd1,R.drawable.asd,R.drawable.asd3};
+    int[] sampleImages = {R.drawable.courusel_1,R.drawable.courosel_2,R.drawable.courosel_3};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -96,29 +97,12 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_prestasi_home);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
-        final AdapterPrestasiHome adapterPrestasiHome = new AdapterPrestasiHome(this.getActivity());
 
-        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
-        Call<GetPrestasi> call = apiInterface.getPrestasiLimit();
-        call.enqueue(new Callback<GetPrestasi>() {
-            @Override
-            public void onResponse(Call<GetPrestasi> call, Response<GetPrestasi> response) {
-                List<Prestasi> prestasiList = response.body().getResult();
-                adapterPrestasiHome.setMlistPrestasi(prestasiList);
-//                recyclerView.setAdapter(adapterPrestasiHome);
-                reloadView(adapterPrestasiHome,prestasiList);
-            }
-
-            @Override
-            public void onFailure(Call<GetPrestasi> call, Throwable t) {
-
-            }
-        });
 
         carouselView = view.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
-
+        getPrestasi();
         return view;
     }
 
@@ -137,6 +121,29 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ProfileActivity.class);
         startActivity(intent);
     }
+
+    private void getPrestasi(){
+        final AdapterPrestasiHome adapterPrestasiHome = new AdapterPrestasiHome(this.getActivity());
+
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<GetPrestasi> call = apiInterface.getPrestasiLimit();
+        call.enqueue(new Callback<GetPrestasi>() {
+            @Override
+            public void onResponse(Call<GetPrestasi> call, Response<GetPrestasi> response) {
+                List<Prestasi> prestasiList = response.body().getResult();
+                adapterPrestasiHome.setMlistPrestasi(prestasiList);
+//                recyclerView.setAdapter(adapterPrestasiHome);
+                reloadView(adapterPrestasiHome,prestasiList);
+            }
+
+            @Override
+            public void onFailure(Call<GetPrestasi> call, Throwable t) {
+
+            }
+        });
+    }
+
+
 
     @OnClick(R.id.btn_fasilitas)
     public void fasilitasClick(){
@@ -181,7 +188,7 @@ public class HomeFragment extends Fragment {
 
     private void clickItemDetail(Prestasi prestasi){
         Intent detailActivity = new Intent(getActivity(), DetailPrestasiActivity.class);
-
+        detailActivity.putExtra("id_prestasi",prestasi.getIdPrestasi());
         startActivity(detailActivity);
         getActivity().overridePendingTransition(0,0);
     }

@@ -19,6 +19,9 @@ import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,13 +43,13 @@ public class DetailAcaraActivity extends AppCompatActivity {
     ImageView imgDetail;
 
     ProgressBar progressBar;
-
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_acara);
-
+        id = getIntent().getStringExtra("id_acara");
         progressBar = findViewById(R.id.progressbaracara);
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
@@ -61,19 +64,29 @@ public class DetailAcaraActivity extends AppCompatActivity {
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String,String> user = sessionManager.getUserDetils();
-        String id = user.get(SessionManager.ID_ACARA);
+//        String id = user.get(SessionManager.ID_ACARA);
         Call<Acara> call = apiInterface.getDetailAcara(id);
 
         call.enqueue(new Callback<Acara>() {
             @Override
             public void onResponse(Call<Acara> call, Response<Acara> response) {
-//                Acara ambilData = new Acara();
                 progressBar.setVisibility(View.GONE);
                 tvIsiBerita.setText(response.body().getKeterangan());
                 tvJudul.setText(response.body().getNamaAcara());
-                tvTanggal.setText(response.body().getTanggal());
+                String getDate = response.body().getTanggal();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = dateFormat.parse(getDate);
+                    SimpleDateFormat newFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+                    String dateFix = newFormat.format(date);
+                    tvTanggal.setText(dateFix);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
                 Glide.with(DetailAcaraActivity.this)
-                        .load("http://projectdsc.ahdirdiysarm.com/uploads/acara/".concat(response.body().getImage()))
+                        .load("http://sman14bdg.dscunikom.com/uploads/acara/".concat(response.body().getImage()))
                         .into(imgDetail);
 
                 Log.e("Nama Acara ","OnRespone "+String.valueOf(response.body().getNamaAcara()));

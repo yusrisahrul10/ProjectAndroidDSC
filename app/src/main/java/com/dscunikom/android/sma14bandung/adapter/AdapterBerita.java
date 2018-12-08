@@ -51,7 +51,7 @@ public class AdapterBerita extends RecyclerView.Adapter<AdapterBerita.CardViewVi
         final Berita p = getmListBerita().get(position);
 
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+p.getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/berita/"+p.getImage())
                 .into(holder.imgContent);
 
 

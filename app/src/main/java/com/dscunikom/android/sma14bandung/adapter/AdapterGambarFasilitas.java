@@ -50,7 +50,7 @@ public class AdapterGambarFasilitas  extends RecyclerView.Adapter<AdapterGambarF
     public void onBindViewHolder(@NonNull AdapterGambarFasilitas.GridViewHolder holder, int position) {
 //       holder.tvTitle.setVisibility(View.GONE);
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/files/"+getmGambarFasilitas().get(position).getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/files/"+getmGambarFasilitas().get(position).getImage())
                 .into(holder.imgPhoto);
     }
 

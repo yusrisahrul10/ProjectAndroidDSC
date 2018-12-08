@@ -43,13 +43,11 @@ public class AdapterJanuary extends RecyclerView.Adapter<AdapterJanuary.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull AdapterJanuary.Holder holder, int position) {
-//        holder.tvBulan.setText(getmListKalender().get(position).getNamaBulan());
-
         String getDate = getmListKalender().get(position).getTanggal();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date date = dateFormat.parse(getDate);
-            SimpleDateFormat newFormat = new SimpleDateFormat("dd,EEEE");
+            SimpleDateFormat newFormat = new SimpleDateFormat("dd");
             String dateFix = newFormat.format(date);
             holder.tvTanggal.setText(dateFix);
         } catch (ParseException e) {

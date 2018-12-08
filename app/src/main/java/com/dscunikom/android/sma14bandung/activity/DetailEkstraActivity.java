@@ -36,7 +36,7 @@ public class DetailEkstraActivity extends AppCompatActivity {
         TextView tvIsiEkstra;
         @BindView(R.id.imageDetailEksra)
         ImageView imgDetail;
-
+        String id;
         ProgressBar progressBar;
 
 
@@ -44,7 +44,7 @@ public class DetailEkstraActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_detail_ekstra);
-
+            id = getIntent().getStringExtra("id_ekstra");
             progressBar = findViewById(R.id.progressbarekstra);
 
             ButterKnife.bind(this);
@@ -60,22 +60,19 @@ public class DetailEkstraActivity extends AppCompatActivity {
             ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
             sessionManager = new SessionManager(getApplicationContext());
             HashMap<String,String> user = sessionManager.getUserDetils();
-            String id = user.get(SessionManager.ID_EKSTRA);
+//            String id = user.get(SessionManager.ID_EKSTRA);
             Call<Ekstrakulikuler> call = apiInterface.getDetailEkstra(id);
 
             call.enqueue(new Callback<Ekstrakulikuler>() {
                 @Override
                 public void onResponse(Call<Ekstrakulikuler> call, Response<Ekstrakulikuler> response) {
                     progressBar.setVisibility(View.GONE);
-//                Acara ambilData = new Acara();
                     tvIsiEkstra.setText(response.body().getKeterangan());
                     tvNamaEkstra.setText(response.body().getNamaEkstra());
 
                     Glide.with(DetailEkstraActivity.this)
-                            .load("http://projectdsc.ahdirdiysarm.com/uploads/ekstrakulikuler/".concat(response.body().getImage()))
+                            .load("http://sman14bdg.dscunikom.com/uploads/ekstrakulikuler/".concat(response.body().getImage()))
                             .into(imgDetail);
-
-                    Log.e("Nama Ekstrakulikuler ","OnRespone "+String.valueOf(response.body().getNamaEkstra()));
                 }
 
                 @Override

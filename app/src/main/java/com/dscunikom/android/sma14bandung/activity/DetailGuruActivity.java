@@ -47,11 +47,8 @@ public class DetailGuruActivity extends AppCompatActivity {
     TextView tvJabatan;
 
 
-    TextView textView1;
-    TextView textView2;
-    TextView textView3;
-    TextView textView4;
 
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,26 +58,7 @@ public class DetailGuruActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarguru);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        textView1 = (TextView) findViewById(R.id.tvName);
-        textView2 = (TextView) findViewById(R.id.kelas);
-        textView3 = (TextView) findViewById(R.id.mapelajaran);
-        textView4 = (TextView) findViewById(R.id.emaill);
-
-        String name = getIntent().getStringExtra(EXTRA_NAME);
-        String mapel = getIntent().getStringExtra(EXTRA_MAPEL);
-        String email = getIntent().getStringExtra(EXTRA_EMAIL);
-        String kelas = getIntent().getStringExtra(EXTRA_KELAS);
-
-        String text = name;
-        textView1.setText(text);
-        String mapell = mapel;
-        textView2.setText(mapell);
-        String emaill = email;
-        textView3.setText(emaill);
-        String kelass = kelas;
-        textView4.setText(kelass);
-
+        id = getIntent().getStringExtra("id_guru");
         getData();
 
 
@@ -89,16 +67,14 @@ public class DetailGuruActivity extends AppCompatActivity {
     public void getData() {
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
-        HashMap<String,String> user = sessionManager.getUserDetils();
-        String id = user.get(SessionManager.ID_GURU);
         retrofit2.Call<Guru> berhasil = apiInterface.getDetailGuru(id);
         berhasil.enqueue(new Callback<Guru>() {
             @Override
             public void onResponse(retrofit2.Call<Guru> call, Response<Guru> response) {
                 tvNama.setText(response.body().getNamaGuru());
-                tvKelas.setText(response.body().getKelasAjar());
-                tvPelajaran.setText(response.body().getMapel());
-                tvEmail.setText(response.body().getEmail());
+                tvKelas.setText("Kelas Ajar : "+response.body().getKelasAjar());
+                tvPelajaran.setText("Pelajaran : "+response.body().getMapel());
+                tvEmail.setText("Email : "+response.body().getEmail());
                 tvJabatan.setText(response.body().getJabatan());
                 Glide.with(DetailGuruActivity.this)
                         .load("http://projectdsc.ahdirdiysarm.com/uploads/guru/".concat(response.body().getImage()))

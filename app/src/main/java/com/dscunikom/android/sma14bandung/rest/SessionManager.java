@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.dscunikom.android.sma14bandung.activity.MainActivity;
+import com.dscunikom.android.sma14bandung.activity.PreloadActivity;
 import com.dscunikom.android.sma14bandung.model.Berita;
 
 import java.util.HashMap;
@@ -40,20 +42,7 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    //    public void createSession(String username , String role , String kecamatan , String kelurahan ){
-//        editor.putBoolean(IS_LOGIN,true);
-//        editor.putString(USERNAME,username);
-//        editor.putString(LOGIN_TYPE,role);
-//        editor.putString(KECAMATAN,kecamatan);
-//        editor.putString(KELURAHAN,kelurahan);
-////        editor.putString(ID_PENGADUAN,id_pengaduan);
-//
-//        editor.commit();
-//    }
-//    public void createPengaduan(String id_pengaduan){
-//        editor.putString(ID_PENGADUAN,id_pengaduan);
-//        editor.commit();
-//    }
+
     public void createIdBerita(String id_berita){
         editor.putString(ID_BERITA,id_berita);
         editor.commit();
@@ -78,32 +67,19 @@ public class SessionManager {
         editor.putString(ID_GURU,id_guru);
         editor.commit();
     }
-//    public void checkLogin(){
-//        if(!this.is_login()){
-//            Intent i = new Intent(_context,MainActivity.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            _context.startActivity(i);
-//        }else{
-//            Intent i = new Intent(_context, HomeActivity.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            _context.startActivity(i);
-//        }
-//    }
+    public void checkLogin(){
+        if(!this.is_login()){
+            Intent i = new Intent(_context,MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            _context.startActivity(i);
+        }
+    }
 
     private boolean is_login(){
         return pref.getBoolean(IS_LOGIN,false);
     }
 
-//    public void logout(){
-//        editor.clear();
-//        editor.commit();
-//        Intent intent = new Intent(_context, MainActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        _context.startActivity(intent);
-//    }
 
     public HashMap<String, String> getUserDetils(){
         HashMap<String, String> user = new HashMap<String, String>();

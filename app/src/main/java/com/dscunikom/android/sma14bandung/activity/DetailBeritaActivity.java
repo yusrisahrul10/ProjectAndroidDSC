@@ -18,6 +18,9 @@ import com.dscunikom.android.sma14bandung.rest.ApiInterface;
 import com.dscunikom.android.sma14bandung.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -39,11 +42,12 @@ public class DetailBeritaActivity extends AppCompatActivity {
     ImageView imgDetail;
 
     ProgressBar progressBar;
-
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        id = getIntent().getStringExtra("id_berita");
         progressBar = findViewById(R.id.progressbarberita);
         ButterKnife.bind(this);
         FirebaseMessaging.getInstance().subscribeToTopic("helsan");
@@ -59,7 +63,7 @@ public class DetailBeritaActivity extends AppCompatActivity {
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String,String> user = sessionManager.getUserDetils();
-        String id = user.get(SessionManager.ID_BERITA);
+//        String id = user.get(SessionManager.ID_BERITA);
         retrofit2.Call<GetBerita> berhasil = apiInterface.getDetailBerita(id);
 
         berhasil.enqueue(new Callback<GetBerita>() {
@@ -67,13 +71,21 @@ public class DetailBeritaActivity extends AppCompatActivity {
             public void onResponse(retrofit2.Call<GetBerita> call, Response<GetBerita> response) {
                 progressBar.setVisibility(View.GONE);
                 List<Berita> mList = response.body().getGetBerita();
-//                Berita berita = new Berita();
                 tvIsiBerita.setText(mList.get(0).getIsi_berita());
                 tvJudul.setText(mList.get(0).getJudul_berita());
-                tvTanggal.setText(mList.get(0).getTanggal());
+                String getDate = mList.get(0).getTanggal();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = dateFormat.parse(getDate);
+                    SimpleDateFormat newFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+                    String dateFix = newFormat.format(date);
+                    tvTanggal.setText(dateFix);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 Glide.with(DetailBeritaActivity.this)
-                        .load("http://projectdsc.ahdirdiysarm.com/uploads/berita/"+mList.get(0).getImage())
+                        .load("http://sman14bdg.dscunikom.com/uploads/berita/"+mList.get(0).getImage())
                         .into(imgDetail);
             }
 

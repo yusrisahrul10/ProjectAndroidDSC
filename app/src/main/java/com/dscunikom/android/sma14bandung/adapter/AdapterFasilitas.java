@@ -47,7 +47,7 @@ public class AdapterFasilitas extends RecyclerView.Adapter<AdapterFasilitas.Grid
     public void onBindViewHolder(@NonNull AdapterFasilitas.GridViewHolder holder, int position) {
         holder.tvTitle.setText(getmListFasilitas().get(position).getNamaFasilitas());
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/files/"+getmListFasilitas().get(position).getImage())
+                .load("http://sman14bdg.dscunikom.com/uploads/files/"+getmListFasilitas().get(position).getImage())
                 .into(holder.imgPhoto);
     }
 

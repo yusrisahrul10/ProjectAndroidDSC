@@ -65,6 +65,9 @@ public interface ApiInterface {
     @GET("profil_guru")
     Call<GetGuru> getGuru();
 
+    @GET("profil_guru/kepala")
+    Call<Guru> getKepalaSekolah();
+
     @GET("profil_guru")
     Call<Guru> getDetailGuru(@Query("id_guru") String id_guru);
 }

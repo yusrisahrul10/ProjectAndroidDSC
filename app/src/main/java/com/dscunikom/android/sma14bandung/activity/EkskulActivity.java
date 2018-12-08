@@ -103,7 +103,10 @@ public class EkskulActivity extends AppCompatActivity {
 
     private void clickItemDetail(Ekstrakulikuler ekstrakulikuler){
         Intent detailActivity = new Intent(this, DetailEkstraActivity.class);
+        detailActivity.putExtra("id_ekstra",ekstrakulikuler.getIdEkstra());
         startActivity(detailActivity);
+        this.overridePendingTransition(0, 0);
+
     }
 
     public void reloadView(RecyclerView.Adapter adapter, final List<Ekstrakulikuler> list ){
@@ -113,7 +116,7 @@ public class EkskulActivity extends AppCompatActivity {
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
                 Ekstrakulikuler listEkstra = list.get(position);
                 String id_ekstra = listEkstra.getIdEkstra();
-                sessionManager.createIdEkstra(id_ekstra);
+//                sessionManager.createIdEkstra(id_ekstra);
                 clickItemDetail(list.get(position));
             }
         });

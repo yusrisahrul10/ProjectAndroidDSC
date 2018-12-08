@@ -31,13 +31,9 @@ public class DetailFasilitasActivity extends AppCompatActivity {
     RecyclerView myRecycler;
 
     private RecyclerView.Adapter mAdapter;
-//    private RecyclerView.LayoutManager mLayoutManager;
         SessionManager sessionManager;
-//        @BindView(R.id.txtNamaFasilitas)
-//        TextView tvNamaFasilitas;
-//        @BindView(R.id.imageDetailFasilitas)
-//        ImageView imgDetail;
 
+        String id;
         ProgressBar progressBar;
 
 
@@ -45,7 +41,7 @@ public class DetailFasilitasActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_fasilitas);
-
+        id = getIntent().getStringExtra("id_fasilitas");
         progressBar = findViewById(R.id.progressbaredetailfasilitas);
 
             ButterKnife.bind(this);
@@ -54,11 +50,6 @@ public class DetailFasilitasActivity extends AppCompatActivity {
             LinearLayoutManager llm = new LinearLayoutManager(this);
             llm.setOrientation(LinearLayoutManager.VERTICAL);
             myRecycler.setLayoutManager(llm);
-//            list.setAdapter( adapter );
-
-//            rvCategory = findViewById(R.id.rv_detail_prestasi);
-//            rvCategory.setHasFixedSize(true);
-//            rvCategory.setLayoutManager(new LinearLayoutManager(this));
             getData();
 
 
@@ -71,7 +62,7 @@ public class DetailFasilitasActivity extends AppCompatActivity {
             ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
             sessionManager = new SessionManager(getApplicationContext());
             HashMap<String,String> user = sessionManager.getUserDetils();
-            String id = user.get(SessionManager.ID_FASILITAS);
+//            String id = user.get(SessionManager.ID_FASILITAS);
 
             Call<GetGambarFasilitas> call = apiInterface.getDetailFasilitas(id);
             call.enqueue(new Callback<GetGambarFasilitas>() {

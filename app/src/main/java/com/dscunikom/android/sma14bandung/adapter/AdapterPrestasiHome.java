@@ -47,18 +47,14 @@ public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHom
 
     @Override
     public void onBindViewHolder(@NonNull AdapterPrestasiHome.MyViewHolder holder, int position) {
-//        final Berita p = getmListBerita().get(position);
-//
-//        Glide.with(context)
-//                .load("http://192.168.0.106/projectdsc/uploads/berita/"+p.getImage())
-//                .into(holder.imgPrestasi);
 
         final Prestasi p = getmListPrestasi().get(position);
 
         holder.txtJudul.setText(p.getNamaPrestasi().substring(0,8)+"...");
 
         Glide.with(context)
-                .load("http://projectdsc.ahdirdiysarm.com/uploads/prestasi/"+p.getImage())
+                .asBitmap()
+                .load("http://sman14bdg.dscunikom.com/uploads/prestasi/"+p.getImage())
                 .into(holder.imgContent);
 
     }
