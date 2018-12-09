@@ -41,13 +41,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if(remoteMessage.getData().size()>0){
             Log.d(TAG, "Message data payload: " + remoteMessage.getData().size());
 
-            onMessageRecivedAcara(remoteMessage);
-            onMessageRecivedBerita(remoteMessage);
-            onMessageRecivedPrestasi(remoteMessage);
+//            onMessageRecivedAcara(remoteMessage);
+//            onMessageRecivedBerita(remoteMessage);
+//            onMessageRecivedPrestasi(remoteMessage);
             String activity = remoteMessage.getData().get("click_action");
             String body = remoteMessage.getData().get("body");
-            Log.d(TAG, "ID ACARA : " + remoteMessage.getData().get("id_acara"));
-            sendNotification(body,activity);
+//            Log.d(TAG, "ID ACARA : " + remoteMessage.getData().get("id_acara"));
+            sendNotification(body,activity , remoteMessage);
         }
 
         // Check if message contains a notification payload.
@@ -61,11 +61,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        super.onMessageReceived(remoteMessage);
     }
 
-    private void sendNotification(String body , String activity ) {
+    private void sendNotification(String body , String activity , RemoteMessage remoteMessage ) {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Intent intent = new Intent();
-        Intent intentNew = sendMessage(activity,intent);
+        Intent intentNew = sendMessage(activity,intent,remoteMessage);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intentNew,
                 PendingIntent.FLAG_ONE_SHOT);
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -95,6 +95,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             sessionManager = new SessionManager(getApplicationContext());
             sessionManager.createIdAcara(remoteMessage.getData().get("id_acara"));
+
             Log.d("ID_ACARRA ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_acara")));
 
     }
@@ -110,19 +111,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if(remoteMessage.getData().get("id_prestasi") != null){
             sessionManager = new SessionManager(getApplicationContext());
             sessionManager.createdIdPrestasi(remoteMessage.getData().get("id_prestasi"));
+
             Log.d("id_prestasi ","RESPONE "+String.valueOf(remoteMessage.getData().get("id_prestasi")));
         }
 
     }
-    private Intent sendMessage(String activity, Intent intent){
+    private Intent sendMessage(String activity, Intent intent , RemoteMessage remoteMessage){
         if(activity.equals("ACARAACTIVITY")){
             intent = new Intent(this,DetailAcaraActivity.class);
+            intent.putExtra("id_acara",remoteMessage.getData().get("id_acara"));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }else if(activity.equals("BERITAACTIVITY")){
             intent = new Intent(this,DetailBeritaActivity.class);
+            intent.putExtra("id_berita",remoteMessage.getData().get("id_berita"));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }else if(activity.equals("PRESTASIACTIVITY")){
             intent = new Intent(this,DetailPrestasiActivity.class);
+            intent.putExtra("id_prestasi",remoteMessage.getData().get("id_prestasi"));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
         return intent;

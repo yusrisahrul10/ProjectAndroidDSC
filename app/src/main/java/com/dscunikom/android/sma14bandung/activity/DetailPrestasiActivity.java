@@ -68,6 +68,7 @@ public class DetailPrestasiActivity extends AppCompatActivity {
         sessionManager = new SessionManager(getApplicationContext());
 //        HashMap<String,String> user = sessionManager.getUserDetils();
 //        String id = user.get(SessionManager.ID_PRESTASI);
+
         Call<Prestasi> call = apiInterface.getDetailPrestasi(id);
 
         call.enqueue(new Callback<Prestasi>() {

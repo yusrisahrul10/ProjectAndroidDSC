@@ -63,8 +63,9 @@ public class DetailAcaraActivity extends AppCompatActivity {
     private void getData(){
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         sessionManager = new SessionManager(getApplicationContext());
-        HashMap<String,String> user = sessionManager.getUserDetils();
+//        HashMap<String,String> user = sessionManager.getUserDetils();
 //        String id = user.get(SessionManager.ID_ACARA);
+
         Call<Acara> call = apiInterface.getDetailAcara(id);
 
         call.enqueue(new Callback<Acara>() {

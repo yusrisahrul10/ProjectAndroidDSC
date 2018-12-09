@@ -124,7 +124,6 @@ public class HomeFragment extends Fragment {
 
     private void getPrestasi(){
         final AdapterPrestasiHome adapterPrestasiHome = new AdapterPrestasiHome(this.getActivity());
-
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
         Call<GetPrestasi> call = apiInterface.getPrestasiLimit();
         call.enqueue(new Callback<GetPrestasi>() {
@@ -200,7 +199,7 @@ public class HomeFragment extends Fragment {
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Prestasi mList = prestasis.get(position);
                 String id_acara = mList.getIdPrestasi();
-                sessionManager.createdIdPrestasi(id_acara);
+//                sessionManager.createdIdPrestasi(id_acara);
                 clickItemDetail(prestasis.get(position));
             }
         });
