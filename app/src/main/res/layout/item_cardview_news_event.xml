@@ -28,7 +28,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/dsc"
+
             tools:src="@color/colorPrimary" />
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_marginBottom="4dp"
             android:layout_toEndOf="@id/img_content"
             android:layout_toRightOf="@id/img_content"
-            android:text="Baca Selengkapnya.."
+            android:text="@string/baca_selengkapnya"
             android:textColor="#0645AD" />
 
     </RelativeLayout>

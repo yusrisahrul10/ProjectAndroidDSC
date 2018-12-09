@@ -52,8 +52,8 @@ public class AdapterPrestasiHome extends RecyclerView.Adapter<AdapterPrestasiHom
 
         holder.txtJudul.setText(p.getNamaPrestasi().substring(0,8)+"...");
 
-        Glide.with(context)
-                .asBitmap()
+        Glide.with(context.getApplicationContext())
+
                 .load("http://sman14bdg.dscunikom.com/uploads/prestasi/"+p.getImage())
                 .into(holder.imgContent);
 
