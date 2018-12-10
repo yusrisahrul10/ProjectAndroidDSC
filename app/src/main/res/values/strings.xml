@@ -51,5 +51,32 @@ Aenean sed leo vulputate, pulvinar nunc eget, tempor orci. Quisque neque ipsum, 
     <string name="ekstra">Detail Ekstrakulikuler</string>
     <string name="third"><u>Dukungan Pihak Ketiga</u></string>
     <string name="baca_selengkapnya">Baca Selengkapnya..</string>
-
+    <string name="visi_sman14">Terwujud sumber daya manusia yang berakhlak mulia, cerdas, dan produktif, serta berbudaya lingkungan.
+        \n
+-	Berakhlak mulia adalah mereka yang religius, beretika, toleran serta memiliki kecerdasan emosional dan sprirual.\n
+-	Cerdas adalah mereka yang memiliki keunggulan, kritis, mandiri, kreatif dan inovatif.\n
+-	Produktif adalah mereka yang proaktif, partisipatif, apresiasitif, aktualitatif, dan profitable.\n
+-	Berbudaya Lingkungan adalah mereka yang memiliki kepedulian dalam memelihara dan menjaga kelestraian lingkungan berkaitan dengan kebersihan,, Ketertiban, Keindahan, Kenyamanan, Kekeluargaan, Kesehatan, dan kerindangan (K7) dilingkungannya\n
+</string>
+    <string name="misi_sman14">1.	Meningkatan mutu pendidikan sesuai dengan perkembangan kebutuhan masyarakat/ stakeholders.\n
+2.	Mengembangkan, infrastruktur, dan sarana pendidikan melalui pembangunan, pemeliharaan serta pemanfaatan, infra struktur dan sarana pendidikan dikembangkan sesuai kebutuhan. \n
+3.	Meningkatan kinerja dan layanan pendidikan secara optimal sesuai dengan tugas pokok dan fungsinya, sehingga tercipta produktivitas dan layanan prima. \n
+4.	Meningkatan profesionalisme tenaga kependidikan sehingga  memiliki kompetensi sesuai dengan tugas dan proyeksinya. \n
+5.	Mengembangan manajemen pendidikan melalui pengelolaan pendidikan dengan memanfaatkan sumber daya manusia dan sumber daya lainnya serta partisipasi masyarakat yang dikelola secara efesien dan efektif. \n
+6.	Memanfaatan teknologi informasi dan komunikasi, sehingga tercipta sistem informasi yang cepat, tepat dan akurat. \n
+7.	Memelihara dan menjaga kelestraian lingkungan berkaitan dengan kebersihan, ketertiban, keindahan, kenyamanan, kekeluargaan, kesehatan dan, kerindangan(K7). \n
+</string>
+    <string name="tujuan_sman14">SMA Negeri 14 Bandung sebagai bagian dari pendidikan nasional memiliki tujuan: meningkatkan kecerdasan, pengetahuan, kepribadian, akhlak mulia, keterampilan untuk hidup mandiri, yang peduli dan berbudaya lingkungan  untuk dapat mengikuti pendidikan lebih lanjut.</string>
+    <string name="target_sman14"> 1. Menunjukan sekolah sebagai pusat kebudayaan, pembaharuan dan perubahan\n
+2.	Mengembangkan kemampuan dan potensi siswa agar menjadi manusia yang beriman bertakwa, berilmu dan berakhlak mulia\n
+3.	Memberikan keterampilan dan kecakapan hiduip kepada siswa agar menjadi manusia yang cakap, kreatif, disiplin, mandiri dan memiliki rasa tanggung jawab yang tinggi\n
+4.	Mempersiapkan siswa agar memiliki kompetensi dan daya saing, sehingga dapat melanjutkan kejenjang pendidikan yang lebih tinggi. Memberikan bekal kemampuan dasar Humaniora dan agama agar para siswa dapat  mengembangkan sikap dan nilai hidup bersama. \n
+5.	Mengembangkan sekolah sebagai pusat kebudayaan, pembaharuan dan perubahan\n
+6.	Mengembangkan kemampuan siswa dalam memelihara dan menjaga kelestraian lingkungan berkaitan dengan kebersihan, ketertiban, keindahan, kenyamanan, kekeluargaan, kesehatan dan, kerindangan(K7) di lingkungannya. \n
+7.	Mengembangkan kemampuan dan potensi siswa agar menjadi manusia yang beriman bertakwa, berilmu dan berakhlak mulia . \n
+8.	Memberikan keterampilan dan kecakapan hiduip kepada siswa agar menjadi manusia yang cakap, kreatif, disiplin, mandiri dan memiliki rasa tanggung jawab yang tinggi . \n
+9.	Mempersiapkan siswa agar memiliki kemampuan dasar untuk melanjutkan pendidikan ke jenjang yang lebih tinggi/ Perguruan Tinggi . \n
+10.	Memberikan bekal kemampuan dasar Humainor dan agama untuk mengembangkan sikap dan nilai hidup bersama . \n
+11.	Terselenggaranya Sekolah berbasis Teknonolgi Informasi. Seluruh proses pembelajaran di dukung oleh sarana dan prasarana yang berbasi Sistem Informasi yang terintegrasi. \n
+</string>
 </resources>

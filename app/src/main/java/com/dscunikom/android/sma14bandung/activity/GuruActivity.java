@@ -131,8 +131,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             public void onResponse(Call<Guru> call, final Response<Guru> response) {
                 assert response.body() != null;
                 String namaKepsek = response.body().getNamaGuru();
-                String id_guru = response.body().getIdGuru();
-                sessionManager.createIdGuru(id_guru);
+//                String id_guru = response.body().getIdGuru();
+//                sessionManager.createIdGuru(id_guru);
                 Glide.with(GuruActivity.this)
                         .load("http://sman14bdg.dscunikom.com/uploads/guru/".concat(response.body().getImage()))
                         .into(img);
@@ -208,8 +208,8 @@ public class GuruActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Guru listGuru = list.get(position);
-                String id_guru = listGuru.getIdGuru();
-                sessionManager.createIdGuru(id_guru);
+//                String id_guru = listGuru.getIdGuru();
+//                sessionManager.createIdGuru(id_guru);
                 clickItemDetail(list.get(position));
             }
         });

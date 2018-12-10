@@ -77,7 +77,7 @@ public class DetailGuruActivity extends AppCompatActivity {
                 tvEmail.setText("Email : "+response.body().getEmail());
                 tvJabatan.setText(response.body().getJabatan());
                 Glide.with(DetailGuruActivity.this)
-                        .load("http://projectdsc.ahdirdiysarm.com/uploads/guru/".concat(response.body().getImage()))
+                        .load("http://sman14bdg.dscunikom.com/uploads/guru/".concat(response.body().getImage()))
                         .into(ivGambar);
 
             }
